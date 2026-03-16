@@ -66,88 +66,119 @@
         /* Hero warm glow */
         .hero-warm-glow { background: radial-gradient(ellipse at center, rgba(239,68,68,0.15) 0%, transparent 70%); }
 
-        /* ===== SKILLS SECTION STYLES ===== */
-        .skills-container {
+        /* ===== NEW SKILLS SECTION STYLES ===== */
+        .skills-wrapper {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
         }
         
-        .skills-title {
+        .skills-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
         
-        .skills-title h2 {
+        .skills-header h2 {
             font-size: 2.5rem;
             font-weight: 700;
             color: #fafafa;
+            letter-spacing: -0.02em;
         }
         
-        .skills-title h2 span {
+        .skills-header h2 span {
             color: #ef4444;
         }
         
-        .skills-title p {
-            margin-top: 0.75rem;
+        .skills-header p {
+            margin-top: 1rem;
             font-size: 1.25rem;
             color: #a1a1aa;
         }
         
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.25rem;
+            max-width: 1000px;
+            margin: 0 auto;
             padding: 2rem;
             background: rgba(255, 255, 255, 0.02);
             border-radius: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            max-width: 1000px;
-            margin: 0 auto;
+            backdrop-filter: blur(10px);
         }
         
-        .skill-item {
-            display: inline-flex;
+        .skill-card {
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 0.75rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 0.875rem 1.5rem;
-            border-radius: 1rem;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #e4e4e7;
+            justify-content: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 1.5rem 1rem;
+            border-radius: 1.25rem;
             transition: all 0.3s ease;
             cursor: default;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         
-        .skill-item:hover {
-            transform: translateY(-4px);
+        .skill-card:hover {
+            transform: translateY(-8px);
             border-color: #ef4444;
             background: rgba(239, 68, 68, 0.1);
-            box-shadow: 0 20px 25px -5px rgba(239, 68, 68, 0.2);
+            box-shadow: 0 20px 30px -10px rgba(239, 68, 68, 0.3);
         }
         
-        .skill-item i {
-            font-size: 1.5rem;
+        .skill-card i {
+            font-size: 2.5rem;
             transition: transform 0.3s ease;
         }
         
-        .skill-item:hover i {
+        .skill-card:hover i {
             transform: scale(1.15);
         }
+        
+        .skill-card span {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #e4e4e7;
+            letter-spacing: 0.02em;
+        }
+
+        /* Specific icon colors */
+        .skill-card:nth-child(1) i { color: #3776ab; } /* Python */
+        .skill-card:nth-child(2) i { color: #f29111; } /* SQL */
+        .skill-card:nth-child(3) i { color: #217346; } /* Excel */
+        .skill-card:nth-child(4) i { color: #f2c811; } /* Power BI */
+        .skill-card:nth-child(5) i { color: #2980b9; } /* Data Visualization */
+        .skill-card:nth-child(6) i { color: #d35400; } /* Data Modeling */
+        .skill-card:nth-child(7) i { color: #27ae60; } /* Analytics */
+        .skill-card:nth-child(8) i { color: #c0392b; } /* Automation */
+        .skill-card:nth-child(9) i { color: #8e44ad; } /* Machine Learning */
 
         /* Responsive adjustments */
         @media (max-width: 640px) {
-            .skill-item {
-                padding: 0.75rem 1.25rem;
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .skill-card {
+                padding: 1.25rem 0.75rem;
+            }
+            
+            .skill-card i {
+                font-size: 2rem;
+            }
+            
+            .skill-card span {
                 font-size: 0.9rem;
             }
-            .skill-item i {
-                font-size: 1.25rem;
+            
+            .skills-header h2 {
+                font-size: 2rem;
             }
         }
         /* ===== END SKILLS SECTION STYLES ===== */
@@ -194,7 +225,7 @@
                 <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#skills">Skills</a>
                 <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#experience">Experience</a>
                 <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#contact">Contact</a>
-                <a href="#" onclick="alert('Resume PDF placeholder')" class="px-3 py-1.5 text-sm font-medium rounded-xl text-red-400 hover:bg-red-500/10 transition-colors">Resume</a>
+                <a href="Ahmed_Sherif_Dataanalyst_resume.pdf"  class="px-3 py-1.5 text-sm font-medium rounded-xl text-red-400 hover:bg-red-500/10 transition-colors">Resume</a>
             </div>
             <button id="mobile-menu-btn" class="md:hidden text-zinc-400 hover:text-red-400 transition-colors">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
@@ -300,43 +331,69 @@
         </div>
     </div>
 </section>
-<!-- FIXED WORKING SKILLS SECTION -->
+
+<!-- ===== NEW SKILLS SECTION WITH YOUR SPECIFIED SKILLS ===== -->
 <section id="skills">
-    <div class="skills-container">
-        <div class="skills-title fade-up visible">
+    <div class="skills-wrapper">
+        <div class="skills-header fade-up">
             <h2>Skills & Expertise<span>.</span></h2>
             <p>Tools and technologies I work with</p>
         </div>
-        <div class="skills-grid fade-up visible">
-            <div class="skill-item">
-                <i class="fa-brands fa-python" style="color: #3776ab;"></i> Python </div>
-            <div class="skill-item">
-                <i class="fas fa-database" style="color: #f29111;"></i> SQL</div>
-            <div class="skill-item">
-                <i class="fas fa-chart-bar" style="color: #2980b9;"></i> Data Visualization
+        
+        <div class="skills-container fade-up">
+            <!-- Python -->
+            <div class="skill-card">
+                <i class="fab fa-python"></i>
+                <span>Python</span>
             </div>
-            <div class="skill-item">
-                <i class="fas fa-file-excel" style="color: #217346;"></i> Excel</div>
-            <div class="skill-item">
-                <i class="fas fa-brain" style="color: #8e44ad;"></i> AI Tools
+            
+            <!-- SQL -->
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <span>SQL</span>
             </div>
-            <div class="skill-item">
-                <i class="fas fa-project-diagram" style="color: #d35400;"></i> Data Modeling
+            
+            <!-- Excel -->
+            <div class="skill-card">
+                <i class="fas fa-file-excel"></i>
+                <span>Excel</span>
             </div>
-            <div class="skill-item">
-                <i class="fas fa-chart-line" style="color: #27ae60;"></i> Analytics
+            
+            <!-- Power BI -->
+            <div class="skill-card">
+                <i class="fas fa-chart-pie"></i>
+                <span>Power BI</span>
             </div>
-            <div class="skill-item">
-                <i class="fas fa-cogs" style="color: #c0392b;"></i> Automation
+            
+            <!-- Data Visualization -->
+            <div class="skill-card">
+                <i class="fas fa-chart-bar"></i>
+                <span>Data Visualization</span>
             </div>
-            <div class="skill-item">
-                <i class="fas fa-table" style="color: #f39c12;"></i> Power BI
+            
+            <!-- Data Modeling -->
+            <div class="skill-card">
+                <i class="fas fa-project-diagram"></i>
+                <span>Data Modeling</span>
             </div>
-            <div class="skill-item">
-                <i class="fas fa-robot" style="color: #10a37f;"></i> Machine Learning
+            
+            <!-- Analytics -->
+            <div class="skill-card">
+                <i class="fas fa-chart-line"></i>
+                <span>Analytics</span>
             </div>
-            <div class="skill-item">
-                <i class="fas fa-chart-pie" style="color: #e67e22;"></i> Tableau </div>
+            
+            <!-- Automation -->
+            <div class="skill-card">
+                <i class="fas fa-cogs"></i>
+                <span>Automation</span>
+            </div>
+            
+            <!-- Machine Learning -->
+            <div class="skill-card">
+                <i class="fas fa-brain"></i>
+                <span>Machine Learning</span>
+            </div>
         </div>
     </div>
 </section>
@@ -372,7 +429,7 @@
     <div class="max-w-3xl mx-auto glass rounded-2xl p-10 md:p-14 relative overflow-hidden">
         <h2 class="text-3xl font-bold text-[#fafafa]">Want to know more<span class="text-red-400">?</span></h2>
         <p class="mt-4 text-[#a1a1aa]">Download my resume for a detailed look at my experience and skills.</p>
-        <a href="Ahmed_Sherif_Dataanalyst_resume.pdf">📄 View Resume</a>
+        <a href="Ahmed_Sherif_Dataanalyst_resume.pdf" class="inline-flex gap-2 mt-6 px-8 py-3 border border-red-500/25 bg-red-500/10 rounded-lg text-red-400 hover:bg-red-500/20 hover:border-red-500/40 transition-all">📄 View Resume</a>
     </div>
 </section>
 
