@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmed Sherif — Data Analyst</title>
-    <!-- Font Awesome for icons -->
+    <!-- Font Awesome 6 (CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- description, author, og tags embedded in the static version -->
+    <!-- description, author, og tags -->
     <meta name="description" content="I am a data analyst specialized in turning raw data into clear insights that support smart decision-making using Python, SQL, and Excel.">
     <meta name="author" content="Ahmed Sherif">
     <meta property="og:title" content="Ahmed Sherif — Data Analyst">
@@ -19,154 +19,140 @@
     <meta name="twitter:title" content="Ahmed Sherif — Data Analyst">
     <meta name="twitter:description" content="I am a data analyst specialized in turning raw data into clear insights that support smart decision-making using Python, SQL, and Excel.">
     <meta name="twitter:image" content="https://www.abhayrana.com/og-image.png">
-    <!-- favicon inline (data-uri) for standalone -->
+    <!-- favicon -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext x='0' y='14' font-family='monospace' font-size='14' fill='%23ef4444'%3E%3C/text%3E%3C/svg%3E" type="image/svg+xml">
-    <!-- base styles: tailwind CDN + custom classes for bento, glow, etc. -->
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- font fallback: system fonts, but we embed Inter / JetBrains Mono / Playfair / Lora via inline styles (no external) -->
     <style>
-        /* font-face definitions for self-contained experience – using local approximations (system fallback) + webfont simulation */
-        @font-face { font-family: 'Inter Variable'; font-style: normal; font-weight: 100 900; font-display: swap; src: local('Inter'), local('Inter Variable'), url('data:font/woff2;base64,dummy') format('woff2'); } 
+        /* Font definitions */
+        @font-face { font-family: 'Inter Variable'; font-style: normal; font-weight: 100 900; font-display: swap; src: local('Inter'), local('Inter Variable'); } 
         @font-face { font-family: 'JetBrains Mono Variable'; font-style: normal; font-weight: 100 800; font-display: swap; src: local('JetBrains Mono'), local('JetBrains Mono Variable'); }
         @font-face { font-family: 'Playfair Display Variable'; font-style: normal; font-weight: 400 900; font-display: swap; src: local('Playfair Display'); }
         @font-face { font-family: 'Lora Variable'; font-style: normal; font-weight: 400 700; font-display: swap; src: local('Lora'); }
-        .inter { font-family: 'Inter Variable', system-ui, -apple-system, sans-serif; }
-        .jetbrains_mono { font-family: 'JetBrains Mono Variable', 'Menlo', monospace; }
-        .playfair_display { font-family: 'Playfair Display Variable', 'Georgia', serif; }
-        .lora { font-family: 'Lora Variable', 'Georgia', serif; }
-        body { font-family: 'Inter Variable', system-ui, -apple-system, sans-serif; }
+        
+        body { 
+            font-family: 'Inter Variable', system-ui, -apple-system, sans-serif; 
+            background-color: #0a0a0a;
+            color: #fafafa;
+        }
 
-        /* custom global styles */
+        /* Star field background */
         .star-field {
             position: fixed; inset: 0; pointer-events: none; z-index: 2;
             background: radial-gradient(circle at 20% 30%, rgba(239,68,68,0.03) 0%, transparent 30%),
                         radial-gradient(circle at 80% 70%, rgba(249,115,22,0.03) 0%, transparent 35%),
                         #0a0a0a;
         }
+
+        /* Glass morphism */
         .glass {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .glass-hover {
-            transition: all 0.2s ease;
-        }
-        .glass-hover:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(239, 68, 68, 0.15);
-        }
-        .timeline-line {
-            background: linear-gradient(to bottom, rgba(239,68,68,0.2) 0%, rgba(249,115,22,0.4) 80%, transparent);
-        }
-        .timeline-dot {
-            box-shadow: 0 0 15px rgba(239,68,68,0.6);
-        }
-        .bento-card {
-            background: rgba(255,255,255,0.02);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.03);
-            border-radius: 1rem;
-            transition: 0.2s;
-        }
-        .bento-card:hover {
-            border-color: rgba(239,68,68,0.3);
-            background: rgba(255,255,255,0.035);
-        }
-        .bento-1x1 { grid-area: span 1 / span 1; }
-        .bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-        .hero-warm-glow { background: radial-gradient(ellipse at center, rgba(239,68,68,0.15) 0%, transparent 70%); }
-        .scroll-indicator { animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 
-        /* image gallery dots and fallback */
-        .profile-dot-active { background: white; width: 1.5rem; }
-        .profile-dot { background: rgba(255,255,255,0.3); width: 0.5rem; height: 0.5rem; border-radius: 9999px; transition: 0.2s; }
-
-        /* placeholder for testimonial images */
-        .testimonial-avatar { background: #262626; border-radius: 9999px; width: 40px; height: 40px; display: inline-block; vertical-align: middle; background-size: cover; background-position: center; }
-
-        /* manual override for red gradient text */
+        /* Gradient text */
         .gradient-text {
             background: linear-gradient(135deg, #ef4444, #f97316);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
+        /* Scroll indicator */
+        .scroll-indicator { animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+        /* Hero warm glow */
+        .hero-warm-glow { background: radial-gradient(ellipse at center, rgba(239,68,68,0.15) 0%, transparent 70%); }
+
         /* ===== SKILLS SECTION STYLES ===== */
-        .container {
-            max-width: 72rem;
+        .skills-container {
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
         }
         
-        .section-title {
+        .skills-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
         
-        .section-title h2 {
-            font-size: 1.875rem;
+        .skills-title h2 {
+            font-size: 2.5rem;
             font-weight: 700;
-            letter-spacing: -0.025em;
             color: #fafafa;
         }
         
-        .section-title h2 span {
+        .skills-title h2 span {
             color: #ef4444;
         }
         
-        .section-title p {
+        .skills-title p {
             margin-top: 0.75rem;
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             color: #a1a1aa;
         }
         
-        .skills-category {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .skills-list {
+        .skills-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 1rem;
-            padding: 1rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
         .skill-item {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 0.75rem 1.25rem;
-            border-radius: 0.75rem;
-            font-size: 0.95rem;
+            padding: 0.875rem 1.5rem;
+            border-radius: 1rem;
+            font-size: 1rem;
             font-weight: 500;
             color: #e4e4e7;
             transition: all 0.3s ease;
             cursor: default;
             backdrop-filter: blur(4px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
         
         .skill-item:hover {
             transform: translateY(-4px);
-            border-color: rgba(239, 68, 68, 0.3);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 20px -10px rgba(239, 68, 68, 0.3);
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(239, 68, 68, 0.2);
         }
         
         .skill-item i {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             transition: transform 0.3s ease;
         }
         
         .skill-item:hover i {
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
-        
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .skill-item {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.9rem;
+            }
+            .skill-item i {
+                font-size: 1.25rem;
+            }
+        }
+        /* ===== END SKILLS SECTION STYLES ===== */
+
+        /* Animation classes */
         .fade-up {
             opacity: 0;
             transform: translateY(30px);
@@ -177,19 +163,30 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* ===== END SKILLS SECTION STYLES ===== */
+
+        /* Section padding */
+        section {
+            padding: 80px 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (min-width: 768px) {
+            section {
+                padding: 120px 1.5rem;
+            }
+        }
     </style>
 </head>
-<body class="antialiased bg-[#0a0a0a] text-[#fafafa] font-sans">
+<body class="antialiased">
 
 <div class="star-field" aria-hidden="true"></div>
 
-<!-- fixed navbar -->
+<!-- Navigation -->
 <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[850px]">
     <div class="rounded-2xl bg-zinc-900/90 backdrop-blur-xl border border-zinc-800 px-4 py-3 md:px-6">
         <div class="flex items-center justify-between">
             <a class="text-lg font-extrabold text-white" href="#hero">Ahmed<span class="text-red-500">.</span></a>
-            <!-- desktop links -->
             <div class="hidden md:flex items-center gap-1">
                 <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#hero">Home</a>
                 <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#about">About</a>
@@ -197,14 +194,12 @@
                 <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#skills">Skills</a>
                 <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#experience">Experience</a>
                 <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#contact">Contact</a>
-                <a href="#" onclick="alert('Resume PDF placeholder — add your file')" class="px-3 py-1.5 text-sm font-medium rounded-xl text-red-400 hover:bg-red-500/10 transition-colors">Resume</a>
+                <a href="#" onclick="alert('Resume PDF placeholder')" class="px-3 py-1.5 text-sm font-medium rounded-xl text-red-400 hover:bg-red-500/10 transition-colors">Resume</a>
             </div>
-            <!-- mobile menu toggle (simple js) -->
-            <button id="mobile-menu-btn" class="md:hidden text-zinc-400 hover:text-red-400 transition-colors" aria-label="Toggle menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+            <button id="mobile-menu-btn" class="md:hidden text-zinc-400 hover:text-red-400 transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
             </button>
         </div>
-        <!-- mobile dropdown (hidden by default) -->
         <div id="mobile-menu" class="hidden mt-2 flex flex-col gap-1 md:hidden border-t border-white/5 pt-2">
             <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#hero">Home</a>
             <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#about">About</a>
@@ -220,201 +215,214 @@
 <main class="relative z-10 pt-16">
 
 <!-- HERO SECTION -->
-<section id="hero" class="relative flex min-h-screen items-center justify-center px-4 md:px-6 overflow-hidden">
-    <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div class="absolute w-[600px] h-[600px] rounded-full opacity-20 blur-[120px]" style="background:radial-gradient(circle, rgba(239,68,68,0.4) 0%, rgba(249,115,22,0.3) 40%, transparent 70%); left:50%; top:50%; transform:translateX(-50%) translateY(-50%)"></div>
-        <div class="absolute w-[300px] h-[300px] rounded-full opacity-15 blur-[80px]" style="background:radial-gradient(circle, rgba(249,115,22,0.5) 0%, rgba(239,68,68,0.2) 50%, transparent 70%); left:60%; top:40%; transform:translateX(-50%) translateY(-50%)"></div>
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute w-[600px] h-[600px] rounded-full opacity-20 blur-[120px]" style="background:radial-gradient(circle, rgba(239,68,68,0.4) 0%, rgba(249,115,22,0.3) 40%, transparent 70%); left:50%; top:50%; transform:translate(-50%, -50%)"></div>
+        <div class="absolute w-[300px] h-[300px] rounded-full opacity-15 blur-[80px]" style="background:radial-gradient(circle, rgba(249,115,22,0.5) 0%, rgba(239,68,68,0.2) 50%, transparent 70%); left:60%; top:40%; transform:translate(-50%, -50%)"></div>
     </div>
     <div class="absolute inset-x-0 bottom-0 h-[40vh] hero-warm-glow pointer-events-none z-[1]"></div>
 
-    <div class="relative z-10 mx-auto max-w-4xl text-center" id="hero-text">
-        <p class="text-lg text-[#a1a1aa] reveal">Hey, I'm</p>
-        <h1 class="mt-2 text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#fafafa] leading-[1.1] reveal" style="text-shadow:0 0 60px rgba(239, 68, 68, 0.2);">AHMED SHERIF</h1>
-        <div class="mt-4 flex justify-center reveal"><span class="inline-flex items-center bg-red-500 text-white px-4 py-1.5 rounded-full text-sm font-medium">Data Analyst</span></div>
-        <p class="mt-6 text-xl sm:text-2xl text-[#a1a1aa] leading-relaxed reveal">From raw data to real insights <br class="hidden sm:block"/> I make numbers <span class="font-serif italic gradient-text">tell stories</span></p>
-        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
-            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-red-500 text-white text-sm font-medium shadow-lg shadow-red-500/25 transition-all duration-300 hover:bg-red-600">Let's Connect <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            <button id="copy-email" class="inline-flex items-center gap-2 text-[#a1a1aa] text-sm hover:text-[#fafafa] active:scale-95 transition-colors cursor-pointer">ahmedsherifgomaa13@gmail.com <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button>
+    <div class="relative z-10 mx-auto max-w-4xl text-center px-4">
+        <p class="text-lg text-[#a1a1aa] fade-up">Hey, I'm</p>
+        <h1 class="mt-2 text-5xl sm:text-6xl md:text-7xl font-bold text-[#fafafa] leading-[1.1] fade-up" style="text-shadow:0 0 60px rgba(239, 68, 68, 0.2);">AHMED SHERIF</h1>
+        <div class="mt-4 flex justify-center fade-up"><span class="inline-flex items-center bg-red-500 text-white px-4 py-1.5 rounded-full text-sm font-medium">Data Analyst</span></div>
+        <p class="mt-6 text-xl sm:text-2xl text-[#a1a1aa] leading-relaxed fade-up">From raw data to real insights <br class="hidden sm:block"/> I make numbers <span class="font-serif italic gradient-text">tell stories</span></p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 fade-up">
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-red-500 text-white text-sm font-medium shadow-lg shadow-red-500/25 hover:bg-red-600 transition-all">Let's Connect <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            <button id="copy-email" class="inline-flex items-center gap-2 text-[#a1a1aa] text-sm hover:text-[#fafafa] transition-colors cursor-pointer">ahmedsherifgomaa13@gmail.com <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button>
         </div>
     </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 reveal"><a href="#about" aria-label="Scroll down" class="group"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#a1a1aa]/40 scroll-indicator group-hover:text-red-400"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></a></div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 fade-up"><a href="#about"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#a1a1aa]/40 scroll-indicator hover:text-red-400 transition-colors"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></a></div>
 </section>
 
-<!-- ABOUT (with image slider static) -->
-<section id="about" class="py-[60px] md:py-[120px] px-4 md:px-6">
-    <div class="mx-auto max-w-4xl">
-        <div class="mb-16 text-center">
-            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-[#fafafa]">About Me<span class="text-red-500">.</span></h2>
+<!-- ABOUT SECTION -->
+<section id="about">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-16 fade-up">
+            <h2 class="text-3xl sm:text-4xl font-bold text-[#fafafa]">About Me<span class="text-red-500">.</span></h2>
             <p class="mt-3 text-lg text-[#a1a1aa]">Get to know me better</p>
         </div>
-        <div class="grid gap-10 md:grid-cols-2 items-center">
-            <!-- image gallery simplified (static single image with dot indicator) -->
-            <div class="aspect-square rounded-2xl bg-white/5 border border-white/10 relative overflow-hidden group">
-                <div class="absolute -inset-1 rounded-2xl bg-gradient-to-br from-red-500/20 to-orange-500/20 blur-xl opacity-50 z-0"></div>
-                <div class="relative z-10 w-full h-full bg-[#1a1a1a] flex items-center justify-center text-zinc-500">
-                    <span class="text-6xl opacity-30">📸</span>
-                </div>
-                <!-- static dots -->
-                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-                    <span class="h-2 w-6 rounded-full bg-white"></span>
-                    <span class="h-2 w-2 rounded-full bg-white/40"></span>
-                    <span class="h-2 w-2 rounded-full bg-white/40"></span>
-                    <span class="h-2 w-2 rounded-full bg-white/40"></span>
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div class="aspect-square rounded-2xl bg-white/5 border border-white/10 relative overflow-hidden">
+                <div class="absolute -inset-1 bg-gradient-to-br from-red-500/20 to-orange-500/20 blur-xl opacity-50"></div>
+                <div class="relative w-full h-full bg-[#1a1a1a] flex items-center justify-center text-zinc-500">
+                    <span class="text-6xl opacity-30">📊</span>
                 </div>
             </div>
             <div>
-                <p class="text-[#a1a1aa] leading-relaxed text-base">I am passionate about Data Analysis and Business Intelligence, and I have hands-on experience in real-world projects and interactive dashboards. I have expertise in cleaning, exploratory data analysis, and presenting clean, professional, and visually appealing data visualizations. I also make use of AI tools to increase efficiency and provide high-quality results.</p>
+                <p class="text-[#a1a1aa] leading-relaxed">I am passionate about Data Analysis and Business Intelligence, and I have hands-on experience in real-world projects and interactive dashboards. I have expertise in cleaning, exploratory data analysis, and presenting clean, professional, and visually appealing data visualizations. I also make use of AI tools to increase efficiency and provide high-quality results.</p>
                 <div class="mt-8 grid grid-cols-2 gap-4">
                     <div class="glass rounded-lg p-4 text-center"><p class="text-2xl font-bold text-[#fafafa]">1+</p><p class="text-sm text-[#a1a1aa]/60">Years Experience</p></div>
                     <div class="glass rounded-lg p-4 text-center"><p class="text-2xl font-bold text-[#fafafa]">5+</p><p class="text-sm text-[#a1a1aa]/60">Projects Delivered</p></div>
-                    <!-- <div class="glass rounded-lg p-4 text-center"><p class="text-2xl font-bold text-[#fafafa]">20+</p><p class="text-sm text-[#a1a1aa]/60">Happy Clients</p></div> -->
-                    <a href="#projects" class="glass rounded-lg p-4 text-center flex flex-col items-center justify-center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 text-red-400"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg><p class="text-sm text-[#a1a1aa]/60 mt-2">Building Useful Tools</p></a>
+                    <a href="#projects" class="glass rounded-lg p-4 text-center flex flex-col items-center justify-center col-span-2 hover:border-red-500/30 transition-all">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 text-red-400"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>
+                        <p class="text-sm text-[#a1a1aa]/60 mt-2">View My Projects</p>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- PROJECTS (excerpt) -->
-<section id="projects" class="py-[60px] md:py-[120px] px-4 md:px-6">
-    <div class="mx-auto max-w-6xl">
-        <div class="mb-16 text-center"><h2 class="text-3xl font-bold sm:text-4xl">Projects<span class="text-red-500">.</span></h2><p class="mt-3 text-lg text-[#a1a1aa]">A selection of my recent work</p></div>
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <!-- ResumeFreePro (featured) -->
-            <div class="md:col-span-2 group rounded-xl glass p-6 transition-all hover:-translate-y-2">
-                <h3 class="text-xl font-semibold group-hover:text-red-400">ResumeFreePro</h3>
-                <p class="mt-2 text-sm text-[#a1a1aa]">Build a job-winning resume in under 10 minutes. AI-powered, ATS-optimized, free.</p>
-                <div class="mt-4 grid grid-cols-2 gap-2 text-xs text-[#a1a1aa]">
-                    <span class="border border-white/10 bg-white/5 rounded px-2 py-1">Next.js</span>
-                    <span class="border border-white/10 bg-white/5 rounded px-2 py-1">TypeScript</span>
-                    <span class="border border-white/10 bg-white/5 rounded px-2 py-1">Tailwind</span>
-                    <span class="border border-white/10 bg-white/5 rounded px-2 py-1">AI / NLP</span>
+<!-- PROJECTS SECTION -->
+<section id="projects">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16 fade-up">
+            <h2 class="text-3xl sm:text-4xl font-bold text-[#fafafa]">Projects<span class="text-red-500">.</span></h2>
+            <p class="mt-3 text-lg text-[#a1a1aa]">A selection of my recent work</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="md:col-span-2 glass p-6 rounded-xl hover:-translate-y-2 transition-all">
+                <h3 class="text-xl font-semibold text-[#fafafa]">Sales Analytics Dashboard</h3>
+                <p class="mt-2 text-sm text-[#a1a1aa]">Interactive Power BI dashboard analyzing sales trends, customer behavior, and forecasting.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="border border-white/10 bg-white/5 rounded px-2 py-1 text-xs">Power BI</span>
+                    <span class="border border-white/10 bg-white/5 rounded px-2 py-1 text-xs">SQL</span>
+                    <span class="border border-white/10 bg-white/5 rounded px-2 py-1 text-xs">Excel</span>
                 </div>
-                <a href="#" class="mt-3 inline-flex items-center text-red-400 text-sm">Live Demo →</a>
             </div>
-            <!-- create-modern-react -->
-            <div class="group rounded-xl glass p-6">
-                <h3 class="text-xl font-semibold group-hover:text-red-400">create-modern-react</h3>
-                <p class="mt-2 text-sm text-[#a1a1aa]">CLI tool that scaffolds React + TS + Vite + Tailwind + shadcn/ui in seconds.</p>
-                <div class="mt-4 flex flex-wrap gap-2"><span class="text-xs border border-white/10 bg-white/5 px-2 py-1">Node.js</span><span class="text-xs border border-white/10 bg-white/5 px-2 py-1">React</span></div>
-                <div class="flex gap-4 mt-3"><a href="#" class="text-red-400 text-sm">GitHub</a><a href="#" class="text-red-400 text-sm">npm</a></div>
+            <div class="glass p-6 rounded-xl hover:-translate-y-2 transition-all">
+                <h3 class="text-xl font-semibold text-[#fafafa]">Customer Segmentation</h3>
+                <p class="mt-2 text-sm text-[#a1a1aa]">Python-based RFM analysis and clustering for targeted marketing.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="border border-white/10 bg-white/5 rounded px-2 py-1 text-xs">Python</span>
+                    <span class="border border-white/10 bg-white/5 rounded px-2 py-1 text-xs">Scikit-learn</span>
+                </div>
             </div>
-            <!-- HealthMug -->
-            <div class="group rounded-xl glass p-6">
-                <h3 class="text-xl font-semibold group-hover:text-red-400">HealthMug</h3>
-                <p class="mt-2 text-sm text-[#a1a1aa]">India's leading online healthcare platform.</p>
-                <div class="mt-4 flex flex-wrap gap-2"><span class="text-xs border border-white/10 bg-white/5 px-2 py-1">React</span><span class="text-xs border border-white/10 bg-white/5 px-2 py-1">Node.js</span></div>
-                <a href="#" class="mt-3 inline-flex text-red-400 text-sm">Live Demo →</a>
+            <div class="glass p-6 rounded-xl hover:-translate-y-2 transition-all">
+                <h3 class="text-xl font-semibold text-[#fafafa]">Web Scraping Pipeline</h3>
+                <p class="mt-2 text-sm text-[#a1a1aa]">Automated data collection and cleaning for e-commerce price monitoring.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="border border-white/10 bg-white/5 rounded px-2 py-1 text-xs">Python</span>
+                    <span class="border border-white/10 bg-white/5 rounded px-2 py-1 text-xs">BeautifulSoup</span>
+                </div>
             </div>
-            <!-- two coming soon cards -->
-            <div class="glass p-6 opacity-40 cursor-not-allowed"><h3 class="text-xl text-[#555]">Coming Soon</h3><p class="text-xs mt-1">In development</p></div>
-            <div class="glass p-6 opacity-40 cursor-not-allowed"><h3 class="text-xl text-[#555]">Coming Soon</h3><p class="text-xs mt-1">On the way</p></div>
         </div>
     </div>
 </section>
 
-<!-- FIXED SKILLS SECTION -->
-<section id="skills" class="py-[60px] md:py-[120px] px-4 md:px-6">
-    <div class="container">
-        <div class="section-title fade-up">
-            <h2>Skills & Expertise<span class="text-red-500">.</span></h2>
+<!-- FIXED WORKING SKILLS SECTION -->
+<section id="skills">
+    <div class="skills-container">
+        <div class="skills-title fade-up">
+            <h2>Skills & Expertise<span>.</span></h2>
             <p>Tools and technologies I work with</p>
         </div>
         
-        <div class="skills-category fade-up">
-            <div class="skills-list">
-                <div class="skill-item">
-                    <i class="fa-brands fa-python" style="color: #3776ab;"></i> Python
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database" style="color: #f29111;"></i> SQL
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-chart-bar" style="color: #2980b9;"></i> Data Visualization
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-file-excel" style="color: #217346;"></i> Excel
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-brain" style="color: #8e44ad;"></i> AI Tools
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-project-diagram" style="color: #d35400;"></i> Data Modeling
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-chart-line" style="color: #27ae60;"></i> Analytics
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-cogs" style="color: #c0392b;"></i> Automation
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-table" style="color: #f39c12;"></i> Power BI
-                </div>
+        <div class="skills-grid fade-up">
+            <div class="skill-item">
+                <i class="fa-brands fa-python" style="color: #3776ab;"></i> Python
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-database" style="color: #f29111;"></i> SQL
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-chart-bar" style="color: #2980b9;"></i> Data Visualization
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-file-excel" style="color: #217346;"></i> Excel
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-brain" style="color: #8e44ad;"></i> AI Tools
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-project-diagram" style="color: #d35400;"></i> Data Modeling
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-chart-line" style="color: #27ae60;"></i> Analytics
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-cogs" style="color: #c0392b;"></i> Automation
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-table" style="color: #f39c12;"></i> Power BI
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-robot" style="color: #10a37f;"></i> Machine Learning
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-chart-pie" style="color: #e67e22;"></i> Tableau
             </div>
         </div>
     </div>
 </section>
 
-<!-- EXPERIENCE (one item preview) -->
-<section id="experience" class="py-[60px] md:py-[120px] px-4 md:px-6">
-    <div class="mx-auto max-w-4xl">
-        <div class="mb-16 text-center"><h2 class="text-3xl font-bold">Experience<span class="text-red-500">.</span></h2></div>
-        <div class="relative pl-8 border-l-2 border-red-500/30 space-y-8">
+<!-- EXPERIENCE SECTION -->
+<section id="experience">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-16 fade-up">
+            <h2 class="text-3xl sm:text-4xl font-bold text-[#fafafa]">Experience<span class="text-red-500">.</span></h2>
+        </div>
+        <div class="relative pl-8 border-l-2 border-red-500/30 space-y-8 fade-up">
             <div class="relative">
                 <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full border-2 border-red-500 bg-[#0a0a0a]"></div>
                 <div class="glass p-6 rounded-xl">
-                    <div class="flex justify-between"><h3 class="font-semibold">Data Analyst Trainee</h3><span class="text-sm text-zinc-500">Sep 2025 - Present</span></div>
+                    <div class="flex flex-wrap justify-between gap-2">
+                        <h3 class="font-semibold text-[#fafafa]">Data Analyst Trainee</h3>
+                        <span class="text-sm text-zinc-500">Sep 2025 - Present</span>
+                    </div>
                     <p class="text-red-400 text-sm mt-1">DEPI · Egypt</p>
+                    <ul class="mt-4 space-y-2 text-sm text-[#a1a1aa]">
+                        <li class="flex gap-2"><span class="text-red-500">•</span>Working on real-world data analysis projects using Python and SQL</li>
+                        <li class="flex gap-2"><span class="text-red-500">•</span>Creating interactive dashboards in Power BI and Excel</li>
+                        <li class="flex gap-2"><span class="text-red-500">•</span>Implementing data cleaning and preprocessing pipelines</li>
+                    </ul>
                 </div>
             </div>
-            <!-- additional items can be added but brevity -->
         </div>
     </div>
 </section>
 
 <!-- RESUME CTA -->
 <section class="py-[60px] px-4 text-center">
-    <div class="mx-auto max-w-3xl rounded-2xl p-10 glass relative overflow-hidden">
-        <h2 class="text-3xl font-bold">Want to know more<span class="text-red-400">?</span></h2>
-        <p class="mt-4 text-[#a1a1aa]">Download my resume for a detailed look.</p>
-        <a href="#" onclick="alert('Resume download placeholder')" class="inline-flex gap-2 mt-6 px-8 py-3 border border-red-500/25 bg-red-500/10 rounded-lg text-red-400">📄 View Resume</a>
+    <div class="max-w-3xl mx-auto glass rounded-2xl p-10 md:p-14 relative overflow-hidden">
+        <h2 class="text-3xl font-bold text-[#fafafa]">Want to know more<span class="text-red-400">?</span></h2>
+        <p class="mt-4 text-[#a1a1aa]">Download my resume for a detailed look at my experience and skills.</p>
+        <a href="Ahmed_Sherif_Dataanalyst_resume.pdf"  class="inline-flex gap-2 mt-6 px-8 py-3 border border-red-500/25 bg-red-500/10 rounded-lg text-red-400 hover:bg-red-500/20 hover:border-red-500/40 transition-all">📄 View Resume</a>
     </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="py-[60px] md:py-[120px] px-4 md:px-6">
-    <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-3xl font-bold">Get in Touch<span class="text-red-500">.</span></h2>
-        <p class="mt-3 text-lg text-[#a1a1aa]">Have a project in mind?</p>
+<!-- CONTACT SECTION -->
+<section id="contact">
+    <div class="max-w-2xl mx-auto text-center px-4">
+        <h2 class="text-3xl sm:text-4xl font-bold text-[#fafafa]">Get in Touch<span class="text-red-500">.</span></h2>
+        <p class="mt-3 text-lg text-[#a1a1aa]">Have a project in mind or want to collaborate?</p>
         <div class="flex flex-col items-center gap-4 mt-8">
-            <div class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-red-400/60"><path d="M22 7l-8.991 5.727a2 2 0 01-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg><a href="mailto:ahmedsherifgomaa13@gmail.com" class="hover:text-red-400">ahmedsherifgomaa13@gmail.com</a></div>
-            <div class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-red-400/60"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 01-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0116 0"/><circle cx="12" cy="10" r="3"/></svg><span>Egypt</span></div>
-            <div class="flex gap-4 mt-2">
-                <a href="https://github.com/Ahmedsherif1306" target="_blank" class="px-4 py-2 glass rounded-lg hover:text-red-400 transition-colors">GitHub</a>
-                <a href="https://www.linkedin.com/in/ahmed-sherif13" target="_blank" class="px-4 py-2 glass rounded-lg hover:text-red-400 transition-colors">LinkedIn</a>
-                <a href="https://wa.me/201003097911" target="_blank" class="px-4 py-2 glass rounded-lg hover:text-red-400 transition-colors">Chat With Me</a>
+            <div class="flex items-center gap-2 text-[#a1a1aa] hover:text-red-400 transition-colors">
+                <i class="fas fa-envelope text-red-400"></i>
+                <a href="mailto:ahmedsherifgomaa13@gmail.com">ahmedsherifgomaa13@gmail.com</a>
             </div>
-            <a href="mailto:ahmedsherifgomaa13@gmail.com" class="inline-flex items-center bg-red-500 text-white px-7 py-3 rounded-lg shadow-lg mt-4 hover:bg-red-600 transition-colors">Send an email</a>
+            <div class="flex items-center gap-2 text-[#a1a1aa]">
+                <i class="fas fa-map-marker-alt text-red-400"></i>
+                <span>Egypt</span>
+            </div>
+            <div class="flex gap-4 mt-4">
+                <a href="https://github.com/Ahmedsherif1306" target="_blank" class="px-4 py-2 glass rounded-lg hover:text-red-400 hover:border-red-400/30 transition-all"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/ahmed-sherif13" target="_blank" class="px-4 py-2 glass rounded-lg hover:text-red-400 hover:border-red-400/30 transition-all"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://wa.me/201003097911" target="_blank" class="px-4 py-2 glass rounded-lg hover:text-red-400 hover:border-red-400/30 transition-all"><i class="fab fa-whatsapp"></i> Chat</a>
+            </div>
+            <a href="mailto:ahmedsherifgomaa13@gmail.com" class="inline-flex items-center bg-red-500 text-white px-7 py-3 rounded-lg shadow-lg mt-6 hover:bg-red-600 transition-all">
+                <i class="fas fa-paper-plane mr-2"></i> Send an email
+            </a>
         </div>
     </div>
 </section>
 </main>
 
 <footer class="border-t border-white/5 py-8 px-4">
-    <div class="mx-auto max-w-6xl flex flex-col md:flex-row justify-between gap-4 text-sm text-[#a1a1aa]/60">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#a1a1aa]/60">
         <p>© 2026 Ahmed Sherif. All rights reserved.</p>
         <div class="flex gap-6">
-            <a href="https://github.com/Ahmedsherif1306" target="_blank" class="hover:text-red-400 transition-colors">GitHub</a>
-            <a href="https://www.linkedin.com/in/ahmed-sherif13" target="_blank" class="hover:text-red-400 transition-colors">LinkedIn</a>
-            <a href="https://wa.me/201003097911" target="_blank" class="hover:text-red-400 transition-colors">Chat With Me</a>
+            <a href="https://github.com/Ahmedsherif1306" target="_blank" class="hover:text-red-400 transition-colors"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/ahmed-sherif13" target="_blank" class="hover:text-red-400 transition-colors"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://wa.me/201003097911" target="_blank" class="hover:text-red-400 transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </div>
 </footer>
 
-<!-- simple js for mobile menu & copy email -->
 <script>
     (function(){
-        // mobile toggle
+        // Mobile menu toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         if (btn && menu) {
@@ -429,10 +437,47 @@
             });
         }
 
-        // copy email
+        // Copy email functionality
         const copyBtn = document.getElementById('copy-email');
         if (copyBtn) {
             copyBtn.addEventListener('click', () => {
-                navigator.clipboard?.writeText('ahmedsherifgomaa13@gmail.com');
-                const original = copyBtn.innerHTML;
-                copyBtn.innerHTML = '<span class="text-green-400">Copied!</span>';
+                navigator.clipboard?.writeText('ahmedsherifgomaa13@gmail.com').then(() => {
+                    const original = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<span class="text-green-400"><i class="fas fa-check mr-1"></i>Copied!</span>';
+                    setTimeout(() => { copyBtn.innerHTML = original; }, 2000);
+                }).catch(() => {
+                    alert('Please copy manually: ahmedsherifgomaa13@gmail.com');
+                });
+            });
+        }
+
+        // Scroll reveal animation
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu if open
+                    if (menu && !menu.classList.contains('hidden')) {
+                        menu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    })();
+</script>
+</body>
+</html>
