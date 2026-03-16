@@ -607,68 +607,65 @@
         });
 
         // ===== GITHUB PROJECTS FETCH =====
-       // ===== GITHUB PROJECTS FETCH =====
-const username = "Ahmedsherif1306";
-const repoList = document.getElementById("repo-list");
+        const username = "Ahmedsherif1306"; // Changed to your GitHub username
+        const repoList = document.getElementById("repo-list");
 
-fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
-.then(res => res.json())
-.then(repos => {
-
-    repoList.innerHTML = "";
-
-    const filtered = repos
-        .filter(repo => !repo.fork && repo.name !== "ِاAhmedsherif1306") // يخفي الريبو بتاع البورتفوليو
-        .slice(0,6); // أفضل 6 مشاريع فقط
-
-    filtered.forEach(repo => {
-
-        const preview = `https://raw.githubusercontent.com/${username}/${repo.name}/main/preview.png`;
-
-        const card = document.createElement("div");
-        card.className = "project-card fade-up";
-
-        card.innerHTML = `
-        
-        <img src="${preview}" 
-        onerror="this.style.display='none'" 
-        style="width:100%;border-radius:10px;margin-bottom:12px;">
-
-        <h3>${repo.name}</h3>
-
-        <p>${repo.description || "Data analysis project with dashboards and insights."}</p>
-
-        <div style="display:flex;gap:15px;font-size:13px;color:#a1a1aa;margin-top:5px">
-
-            <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
-
-            <span><i class="fas fa-code"></i> ${repo.language || "Data"}</span>
-
-        </div>
-
-        <div style="display:flex;gap:10px;margin-top:12px">
-
-        <a href="${repo.html_url}" target="_blank">
-        <i class="fab fa-github"></i> Code
-        </a>
-
-        <a href="${repo.homepage || repo.html_url}" target="_blank">
-        <i class="fas fa-chart-line"></i> Dashboard
-        </a>
-
-        </div>
-        `;
-
-        repoList.appendChild(card);
-
-        setTimeout(()=>card.classList.add("visible"),100)
-
-    })
-
-})
-.catch(err=>{
-    repoList.innerHTML = "Error loading projects";
-})
+        // جلب المشاريع من GitHub API
+        fetch(`https://api.github.com/users/${username}/repos?sort=updated&direction=desc`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('GitHub API error');
+                }
+                return response.json();
+            })
+            .then(repos => {
+                // Clear loading message
+                repoList.innerHTML = '';
+                
+                // Show only first 6 repos to keep it clean
+                const recentRepos = repos.filter(repo => !repo.fork && repo.name !== "Ahmedsherif1306").slice(0, 6);
+                
+                recentRepos.forEach(repo => {
+                    const repoCard = document.createElement("div");
+                    repoCard.className = "project-card fade-up";
+                    
+                    // Format date
+                    const updatedDate = new Date(repo.updated_at).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                    });
+                    
+                    repoCard.innerHTML = `
+                        <h3>${repo.name}</h3>
+                        <p>${repo.description || "No description available"}</p>
+                        <div style="display: flex; gap: 1rem; margin-top: 0.5rem; font-size: 0.85rem; color: #a1a1aa;">
+                            <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+                            <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+                            <span><i class="far fa-calendar-alt"></i> ${updatedDate}</span>
+                        </div>
+                        <a href="${repo.html_url}" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    `;
+                    repoList.appendChild(repoCard);
+                    
+                    // Trigger fade-up animation
+                    setTimeout(() => {
+                        repoCard.classList.add('visible');
+                    }, 100);
+                });
+            })
+            .catch(error => {
+                repoList.innerHTML = `
+                    <div class="loading" style="grid-column: 1/-1;">
+                        <i class="fas fa-exclamation-circle" style="color: #ef4444;"></i> 
+                        Error loading repositories. Please try again later.
+                    </div>
+                `;
+                console.error('Error fetching repos:', error);
+            });
+    })();
 </script>
 </body>
 </html>
