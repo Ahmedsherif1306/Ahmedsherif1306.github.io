@@ -618,7 +618,7 @@ fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
     repoList.innerHTML = "";
 
     const filtered = repos
-        .filter(repo => !repo.fork && repo.name !== "portfolio") // يخفي الريبو بتاع البورتفوليو
+        .filter(repo => !repo.fork && repo.name !== "ِاAhmedsherif1306") // يخفي الريبو بتاع البورتفوليو
         .slice(0,6); // أفضل 6 مشاريع فقط
 
     filtered.forEach(repo => {
