@@ -749,25 +749,25 @@
                     const gradientIndex = repo.name.length % gradientColors.length;
                     
                     repoCard.innerHTML = `
-                        <div class="project-image">
-                            <div class="fallback" style="background: ${gradientColors[gradientIndex]};">
-                                <i class="fab fa-github"></i>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>${repo.name}</h3>
-                            <p>${repo.description || "No description available"}</p>
-                            <div class="project-stats">
-                                <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
-                                <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
-                                <span><i class="fas fa-circle" style="color: ${langColor};"></i> ${repo.language || 'N/A'}</span>
-                                <span><i class="far fa-calendar-alt"></i> ${updatedDate}</span>
-                            </div>
-                            <a href="${repo.html_url}" target="_blank">
-                                <i class="fab fa-github"></i> View on GitHub
-                            </a>
-                        </div>
-                    `;
+                <div class="project-image">
+                    <img src="${screenshotUrl}" 
+                         alt="${repo.name}" 
+                         onerror="this.parentElement.innerHTML='<div class=\'fallback\' style=\'background: ${gradientColors[gradientIndex]};\'><i class=\'fab fa-github\'></i><div style=\'font-size: 0.8rem; margin-top: 0.5rem;\'>${repo.name.substring(0, 15)}</div></div>'">
+                </div>
+                <div class="project-content">
+                    <h3>${repo.name}</h3>
+                    <p>${repo.description || "No description available"}</p>
+                    <div class="project-stats">
+                        <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+                        <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+                        <span><i class="fas fa-circle" style="color: ${langColor};"></i> ${repo.language || 'N/A'}</span>
+                        <span><i class="far fa-calendar-alt"></i> ${updatedDate}</span>
+                    </div>
+                    <a href="${repo.html_url}" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            `;
                     repoList.appendChild(repoCard);
                     
                     // Trigger fade-up animation
