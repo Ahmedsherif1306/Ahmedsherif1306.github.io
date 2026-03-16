@@ -160,7 +160,7 @@
         /* ===== GITHUB PROJECTS SECTION STYLES ===== */
         #projects { 
             padding: 80px 20px; 
-            max-width: 1000px; 
+            max-width: 1200px; 
             margin: auto; 
             position: relative;
             z-index: 10;
@@ -180,37 +180,94 @@
         
         #repo-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
         }
         
         .project-card { 
             background: rgba(30, 30, 30, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 1.5rem; 
             border-radius: 1rem; 
             transition: all 0.3s ease; 
             display: flex;
             flex-direction: column;
             height: 100%;
+            overflow: hidden;
         }
         
-        .project-card h3 { 
+        .project-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-image .fallback {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+            color: white;
+            font-size: 3rem;
+            opacity: 0.8;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-content h3 { 
             margin-top: 0; 
             color: #fafafa;
             font-size: 1.25rem;
             font-weight: 600;
         }
         
-        .project-card p { 
+        .project-content p { 
             color: #a1a1aa; 
             margin: 1rem 0;
             line-height: 1.6;
             flex-grow: 1;
         }
         
-        .project-card a { 
+        .project-stats {
+            display: flex;
+            gap: 1rem;
+            margin: 0.5rem 0 1rem;
+            font-size: 0.85rem;
+            color: #a1a1aa;
+        }
+        
+        .project-stats span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .project-stats i {
+            color: #ef4444;
+        }
+        
+        .project-content a { 
             color: #ef4444; 
             text-decoration: none; 
             font-weight: 500;
@@ -219,14 +276,12 @@
             gap: 0.5rem;
             margin-top: 1rem;
             transition: color 0.2s;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1rem;
         }
         
-        .project-card a:hover {
+        .project-content a:hover {
             color: #f87171;
-        }
-        
-        .project-card a i {
-            font-size: 1rem;
         }
         
         .project-card:hover { 
@@ -241,6 +296,7 @@
             color: #a1a1aa;
             padding: 3rem;
             font-size: 1.2rem;
+            grid-column: 1/-1;
         }
 
         .loading i {
@@ -254,6 +310,16 @@
         }
 
         /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #repo-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-image {
+                height: 160px;
+            }
+        }
+
         @media (max-width: 640px) {
             .skills-container {
                 grid-template-columns: repeat(2, 1fr);
@@ -279,10 +345,6 @@
             
             #projects h2 {
                 font-size: 2rem;
-            }
-            
-            #repo-list {
-                grid-template-columns: 1fr;
             }
         }
         /* ===== END CUSTOM STYLES ===== */
@@ -399,7 +461,7 @@
     </div>
 </section>
 
-<!-- GITHUB PROJECTS SECTION - REPLACED WITH YOUR CODE -->
+<!-- GITHUB PROJECTS SECTION - WITH IMAGES AND FILTERED -->
 <section id="projects">
     <h2>GitHub Projects<span class="text-red-500">.</span></h2>
     <div id="repo-list">
@@ -606,12 +668,21 @@
             });
         });
 
-        // ===== GITHUB PROJECTS FETCH =====
-        const username = "Ahmedsherif1306"; // Changed to your GitHub username
+        // ===== GITHUB PROJECTS FETCH WITH IMAGES AND FILTER =====
+        const username = "Ahmedsherif1306";
         const repoList = document.getElementById("repo-list");
 
+        // Function to get image for repository
+        function getRepoImage(repo) {
+            // Try to get the social preview image (og-image) from the repo
+            if (repo.has_pages) {
+                return `https://raw.githubusercontent.com/${username}/${repo.name}/main/og-image.png`;
+            }
+            return null;
+        }
+
         // جلب المشاريع من GitHub API
-        fetch(`https://api.github.com/users/${username}/repos?sort=updated&direction=desc`)
+        fetch(`https://api.github.com/users/${username}/repos?sort=updated&direction=desc&per_page=100`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('GitHub API error');
@@ -622,8 +693,23 @@
                 // Clear loading message
                 repoList.innerHTML = '';
                 
-                // Show only first 6 repos to keep it clean
-                const recentRepos = repos.filter(repo => !repo.fork && repo.name !== "Ahmedsherif1306").slice(0, 6);
+                // Filter out the github.io repository
+                const filteredRepos = repos.filter(repo => 
+                    !repo.name.includes(`${username}.github.io`)
+                );
+                
+                // Show only first 6 repos
+                const recentRepos = filteredRepos.slice(0, 6);
+                
+                if (recentRepos.length === 0) {
+                    repoList.innerHTML = `
+                        <div class="loading" style="grid-column: 1/-1;">
+                            <i class="fas fa-info-circle"></i> 
+                            No projects found.
+                        </div>
+                    `;
+                    return;
+                }
                 
                 recentRepos.forEach(repo => {
                     const repoCard = document.createElement("div");
@@ -636,24 +722,56 @@
                         day: 'numeric'
                     });
                     
+                    // Get primary language color
+                    const languageColors = {
+                        'Python': '#3776ab',
+                        'JavaScript': '#f7df1e',
+                        'TypeScript': '#3178c6',
+                        'HTML': '#e34c26',
+                        'CSS': '#563d7c',
+                        'Jupyter Notebook': '#da5b0b',
+                        'Java': '#b07219'
+                    };
+                    
+                    const langColor = languageColors[repo.language] || '#ef4444';
+                    
+                    // Generate random gradient for fallback image based on repo name
+                    const gradientColors = [
+                        'linear-gradient(135deg, #ef4444, #f97316)',
+                        'linear-gradient(135deg, #8b5cf6, #ec4899)',
+                        'linear-gradient(135deg, #3b82f6, #2dd4bf)',
+                        'linear-gradient(135deg, #10b981, #f59e0b)',
+                        'linear-gradient(135deg, #6366f1, #a855f7)'
+                    ];
+                    
+                    const gradientIndex = repo.name.length % gradientColors.length;
+                    
                     repoCard.innerHTML = `
-                        <h3>${repo.name}</h3>
-                        <p>${repo.description || "No description available"}</p>
-                        <div style="display: flex; gap: 1rem; margin-top: 0.5rem; font-size: 0.85rem; color: #a1a1aa;">
-                            <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
-                            <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
-                            <span><i class="far fa-calendar-alt"></i> ${updatedDate}</span>
+                        <div class="project-image">
+                            <div class="fallback" style="background: ${gradientColors[gradientIndex]};">
+                                <i class="fab fa-github"></i>
+                            </div>
                         </div>
-                        <a href="${repo.html_url}" target="_blank">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
+                        <div class="project-content">
+                            <h3>${repo.name}</h3>
+                            <p>${repo.description || "No description available"}</p>
+                            <div class="project-stats">
+                                <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+                                <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+                                <span><i class="fas fa-circle" style="color: ${langColor};"></i> ${repo.language || 'N/A'}</span>
+                                <span><i class="far fa-calendar-alt"></i> ${updatedDate}</span>
+                            </div>
+                            <a href="${repo.html_url}" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
                     `;
                     repoList.appendChild(repoCard);
                     
                     // Trigger fade-up animation
                     setTimeout(() => {
                         repoCard.classList.add('visible');
-                    }, 100);
+                    }, 100 * recentRepos.indexOf(repo));
                 });
             })
             .catch(error => {
