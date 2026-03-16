@@ -8,95 +8,146 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- AOS Animation CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <!-- Styles -->
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            scroll-behavior: smooth;
+            background-color: #121212;
+            color: #fff;
         }
         header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 40px 0;
+            height: 100vh;
+            background: linear-gradient(to right, #1b1b1b, #2c3e50);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
         }
         header h1 {
+            font-size: 3rem;
             margin: 0;
-            font-size: 2.5rem;
         }
         header p {
             font-size: 1.2rem;
-            margin-top: 10px;
+            margin: 10px 0 30px;
+            color: #aaa;
         }
+        .btn {
+            padding: 12px 30px;
+            background-color: #2980b9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn:hover { background-color: #3498db; }
+
         section {
-            padding: 50px 20px;
+            padding: 80px 20px;
             max-width: 1000px;
             margin: auto;
         }
-        h2 {
+        section h2 {
             text-align: center;
-            margin-bottom: 40px;
-            color: #2c3e50;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            color: #2980b9;
         }
-        .projects, .skills {
+
+        /* Skills */
+        .skills-icons {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 30px;
         }
-        .card {
-            background: white;
-            padding: 20px;
+        .skills-icons i {
+            font-size: 3rem;
+            color: #3498db;
+            transition: transform 0.3s;
+        }
+        .skills-icons i:hover { transform: scale(1.2); }
+
+        /* Projects Slider */
+        .swiper {
+            padding: 40px 0;
+        }
+        .swiper-slide {
+            background: #1e1e1e;
             border-radius: 10px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            width: 300px;
+            padding: 30px;
             text-align: center;
-            transition: transform 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
         }
-        .card:hover {
-            transform: translateY(-10px);
-        }
-        .card h3 {
-            margin-top: 0;
+        .swiper-slide h3 {
             color: #2980b9;
+            margin-bottom: 15px;
         }
-        .skills i {
-            font-size: 2rem;
-            margin: 10px;
-            color: #2980b9;
+        .swiper-slide p {
+            color: #ccc;
+            font-size: 0.95rem;
         }
+
+        /* Contact Form */
+        form {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        form input, form textarea {
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+        form button {
+            padding: 12px;
+            background-color: #2980b9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        form button:hover { background-color: #3498db; }
+
         footer {
+            background-color: #1b1b1b;
             text-align: center;
             padding: 30px;
-            background-color: #2c3e50;
-            color: white;
-        }
-        a {
-            color: #2980b9;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
+            color: #888;
         }
     </style>
 </head>
 <body>
 
-<header>
+<header id="home" data-aos="fade-in">
     <h1>Ahmed Sherif</h1>
     <p>Data Analyst | Python | SQL | Excel | Dashboard Creator</p>
+    <a href="#contact" class="btn">Contact Me</a>
 </header>
 
-<section id="about">
+<section id="about" data-aos="fade-up">
     <h2>About Me</h2>
-    <p>Hello! I’m Ahmed, a data analyst passionate about transforming raw data into actionable insights. I specialize in Python, SQL, and Excel for analysis and visualization.</p>
+    <p>Hello! I’m Ahmed, a data analyst passionate about transforming raw data into actionable insights. I specialize in Python, SQL, Excel, and creating interactive dashboards.</p>
 </section>
 
-<section id="skills">
+<section id="skills" data-aos="fade-up">
     <h2>Skills</h2>
-    <div class="skills">
+    <div class="skills-icons">
         <i class="fab fa-python" title="Python"></i>
         <i class="fas fa-database" title="SQL"></i>
         <i class="fas fa-chart-bar" title="Data Visualization"></i>
@@ -105,39 +156,68 @@
     </div>
 </section>
 
-<section id="projects">
+<section id="projects" data-aos="fade-up">
     <h2>Projects</h2>
-    <div class="projects">
-        <div class="card">
-            <h3>Medical Appointment Analysis</h3>
-            <p>Python, Pandas, Seaborn</p>
-            <p>Analyzed patient no-shows and identified factors affecting attendance.</p>
-            <a href="#">View Project</a>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <h3>Medical Appointment Analysis</h3>
+                <p>Python, Pandas, Seaborn<br>Analyzed patient no-shows and identified key factors.</p>
+            </div>
+            <div class="swiper-slide">
+                <h3>Superstore Data Model</h3>
+                <p>SQL, Excel<br>Normalized data and built analytical dashboards for sales.</p>
+            </div>
+            <div class="swiper-slide">
+                <h3>COVID-19 Dashboard</h3>
+                <p>Python, Plotly<br>Interactive dashboard tracking global COVID-19 stats.</p>
+            </div>
         </div>
-        <div class="card">
-            <h3>Superstore Data Model</h3>
-            <p>SQL, Excel</p>
-            <p>Normalized raw data and created dashboards for sales analysis.</p>
-            <a href="#">View Project</a>
-        </div>
-        <div class="card">
-            <h3>COVID-19 Dashboard</h3>
-            <p>Python, Plotly</p>
-            <p>Built an interactive dashboard tracking global COVID-19 cases and recoveries.</p>
-            <a href="#">View Project</a>
-        </div>
+        <!-- Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
 </section>
 
-<section id="contact">
+<section id="contact" data-aos="fade-up">
     <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:ahmed@example.com">ahmed@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/ahmedsherif">github.com/ahmedsherif</a></p>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
 </section>
 
 <footer>
     &copy; 2026 Ahmed Sherif. All rights reserved.
 </footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    // Initialize Swiper
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+            delay: 5000,
+        },
+    });
+
+    // Initialize AOS
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+</script>
 
 </body>
 </html>
