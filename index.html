@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,41 +8,76 @@
     <!-- Font Awesome 6 (CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- description, author, og tags -->
-    <meta name="description" content="I am a data analyst specialized in turning raw data into clear insights that support smart decision-making using Python, SQL, and Excel.">
+    <meta name="description"
+        content="I am a data analyst specialized in turning raw data into clear insights that support smart decision-making using Python, SQL, and Excel.">
     <meta name="author" content="Ahmed Sherif">
     <meta property="og:title" content="Ahmed Sherif — Data Analyst">
-    <meta property="og:description" content="I am a data analyst specialized in turning raw data into clear insights that support smart decision-making using Python, SQL, and Excel.">
+    <meta property="og:description"
+        content="I am a data analyst specialized in turning raw data into clear insights that support smart decision-making using Python, SQL, and Excel.">
     <meta property="og:url" content="https://ahmedsherif1306.github.io">
     <meta property="og:site_name" content="Ahmed Sherif">
     <meta property="og:image" content="https://www.abhayrana.com/og-image.png">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ahmed Sherif — Data Analyst">
-    <meta name="twitter:description" content="I am a data analyst specialized in turning raw data into clear insights that support smart decision-making using Python, SQL, and Excel.">
+    <meta name="twitter:description"
+        content="I am a data analyst specialized in turning raw data into clear insights that support smart decision-making using Python, SQL, and Excel.">
     <meta name="twitter:image" content="https://www.abhayrana.com/og-image.png">
     <!-- favicon -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext x='0' y='14' font-family='monospace' font-size='14' fill='%23ef4444'%3E%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext x='0' y='14' font-family='monospace' font-size='14' fill='%23ef4444'%3E%3C/text%3E%3C/svg%3E"
+        type="image/svg+xml">
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Font definitions */
-        @font-face { font-family: 'Inter Variable'; font-style: normal; font-weight: 100 900; font-display: swap; src: local('Inter'), local('Inter Variable'); } 
-        @font-face { font-family: 'JetBrains Mono Variable'; font-style: normal; font-weight: 100 800; font-display: swap; src: local('JetBrains Mono'), local('JetBrains Mono Variable'); }
-        @font-face { font-family: 'Playfair Display Variable'; font-style: normal; font-weight: 400 900; font-display: swap; src: local('Playfair Display'); }
-        @font-face { font-family: 'Lora Variable'; font-style: normal; font-weight: 400 700; font-display: swap; src: local('Lora'); }
-        
-        body { 
-            font-family: 'Inter Variable', system-ui, -apple-system, sans-serif; 
+        @font-face {
+            font-family: 'Inter Variable';
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: local('Inter'), local('Inter Variable');
+        }
+
+        @font-face {
+            font-family: 'JetBrains Mono Variable';
+            font-style: normal;
+            font-weight: 100 800;
+            font-display: swap;
+            src: local('JetBrains Mono'), local('JetBrains Mono Variable');
+        }
+
+        @font-face {
+            font-family: 'Playfair Display Variable';
+            font-style: normal;
+            font-weight: 400 900;
+            font-display: swap;
+            src: local('Playfair Display');
+        }
+
+        @font-face {
+            font-family: 'Lora Variable';
+            font-style: normal;
+            font-weight: 400 700;
+            font-display: swap;
+            src: local('Lora');
+        }
+
+        body {
+            font-family: 'Inter Variable', system-ui, -apple-system, sans-serif;
             background-color: #0a0a0a;
             color: #fafafa;
         }
 
         /* Star field background */
         .star-field {
-            position: fixed; inset: 0; pointer-events: none; z-index: 2;
-            background: radial-gradient(circle at 20% 30%, rgba(239,68,68,0.03) 0%, transparent 30%),
-                        radial-gradient(circle at 80% 70%, rgba(249,115,22,0.03) 0%, transparent 35%),
-                        #0a0a0a;
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 2;
+            background: radial-gradient(circle at 20% 30%, rgba(239, 68, 68, 0.03) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(249, 115, 22, 0.03) 0%, transparent 35%),
+                #0a0a0a;
         }
 
         /* Glass morphism */
@@ -60,11 +96,26 @@
         }
 
         /* Scroll indicator */
-        .scroll-indicator { animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(6px);
+            }
+        }
 
         /* Hero warm glow */
-        .hero-warm-glow { background: radial-gradient(ellipse at center, rgba(239,68,68,0.15) 0%, transparent 70%); }
+        .hero-warm-glow {
+            background: radial-gradient(ellipse at center, rgba(239, 68, 68, 0.15) 0%, transparent 70%);
+        }
 
         /* ===== SKILLS SECTION STYLES ===== */
         .skills-wrapper {
@@ -72,29 +123,29 @@
             margin: 0 auto;
             padding: 0 1rem;
         }
-        
+
         .skills-header {
             text-align: center;
             margin-bottom: 4rem;
         }
-        
+
         .skills-header h2 {
             font-size: 2.5rem;
             font-weight: 700;
             color: #fafafa;
             letter-spacing: -0.02em;
         }
-        
+
         .skills-header h2 span {
             color: #ef4444;
         }
-        
+
         .skills-header p {
             margin-top: 1rem;
             font-size: 1.25rem;
             color: #a1a1aa;
         }
-        
+
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -107,7 +158,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
         }
-        
+
         .skill-card {
             display: flex;
             flex-direction: column;
@@ -122,23 +173,23 @@
             cursor: default;
             text-align: center;
         }
-        
+
         .skill-card:hover {
             transform: translateY(-8px);
             border-color: #ef4444;
             background: rgba(239, 68, 68, 0.1);
             box-shadow: 0 20px 30px -10px rgba(239, 68, 68, 0.3);
         }
-        
+
         .skill-card i {
             font-size: 2.5rem;
             transition: transform 0.3s ease;
         }
-        
+
         .skill-card:hover i {
             transform: scale(1.15);
         }
-        
+
         .skill-card span {
             font-size: 1rem;
             font-weight: 600;
@@ -147,55 +198,91 @@
         }
 
         /* Specific icon colors */
-        .skill-card:nth-child(1) i { color: #3776ab; } /* Python */
-        .skill-card:nth-child(2) i { color: #f29111; } /* SQL */
-        .skill-card:nth-child(3) i { color: #217346; } /* Excel */
-        .skill-card:nth-child(4) i { color: #f2c811; } /* Power BI */
-        .skill-card:nth-child(5) i { color: #2980b9; } /* Data Visualization */
-        .skill-card:nth-child(6) i { color: #d35400; } /* Data Modeling */
-        .skill-card:nth-child(7) i { color: #27ae60; } /* Analytics */
-        .skill-card:nth-child(8) i { color: #c0392b; } /* Automation */
-        .skill-card:nth-child(9) i { color: #8e44ad; } /* Machine Learning */
+        .skill-card:nth-child(1) i {
+            color: #3776ab;
+        }
+
+        /* Python */
+        .skill-card:nth-child(2) i {
+            color: #f29111;
+        }
+
+        /* SQL */
+        .skill-card:nth-child(3) i {
+            color: #217346;
+        }
+
+        /* Excel */
+        .skill-card:nth-child(4) i {
+            color: #f2c811;
+        }
+
+        /* Power BI */
+        .skill-card:nth-child(5) i {
+            color: #2980b9;
+        }
+
+        /* Data Visualization */
+        .skill-card:nth-child(6) i {
+            color: #d35400;
+        }
+
+        /* Data Modeling */
+        .skill-card:nth-child(7) i {
+            color: #27ae60;
+        }
+
+        /* Analytics */
+        .skill-card:nth-child(8) i {
+            color: #c0392b;
+        }
+
+        /* Automation */
+        .skill-card:nth-child(9) i {
+            color: #8e44ad;
+        }
+
+        /* Machine Learning */
 
         /* ===== GITHUB PROJECTS SECTION STYLES ===== */
-        #projects { 
-            padding: 80px 20px; 
-            max-width: 1200px; 
-            margin: auto; 
+        #projects {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: auto;
             position: relative;
             z-index: 10;
         }
-        
-        #projects h2 { 
-            text-align: center; 
-            margin-bottom: 50px; 
+
+        #projects h2 {
+            text-align: center;
+            margin-bottom: 50px;
             font-size: 2.5rem;
             font-weight: 700;
             color: #fafafa;
         }
-        
+
         #projects h2 span {
             color: #ef4444;
         }
-        
+
         #repo-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
-        
-        .project-card { 
+
+        .project-card {
             background: rgba(30, 30, 30, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 1rem; 
-            transition: all 0.3s ease; 
+            border-radius: 1rem;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             height: 100%;
             overflow: hidden;
         }
-        
+
         .project-image {
             width: 100%;
             height: 180px;
@@ -204,18 +291,18 @@
             overflow: hidden;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
+
         .project-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+
         .project-card:hover .project-image img {
             transform: scale(1.05);
         }
-        
+
         .project-image .fallback {
             width: 100%;
             height: 100%;
@@ -227,28 +314,28 @@
             font-size: 3rem;
             opacity: 0.8;
         }
-        
+
         .project-content {
             padding: 1.5rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-        
-        .project-content h3 { 
-            margin-top: 0; 
+
+        .project-content h3 {
+            margin-top: 0;
             color: #fafafa;
             font-size: 1.25rem;
             font-weight: 600;
         }
-        
-        .project-content p { 
-            color: #a1a1aa; 
+
+        .project-content p {
+            color: #a1a1aa;
             margin: 1rem 0;
             line-height: 1.6;
             flex-grow: 1;
         }
-        
+
         .project-stats {
             display: flex;
             gap: 1rem;
@@ -256,20 +343,20 @@
             font-size: 0.85rem;
             color: #a1a1aa;
         }
-        
+
         .project-stats span {
             display: flex;
             align-items: center;
             gap: 0.25rem;
         }
-        
+
         .project-stats i {
             color: #ef4444;
         }
-        
-        .project-content a { 
-            color: #ef4444; 
-            text-decoration: none; 
+
+        .project-content a {
+            color: #ef4444;
+            text-decoration: none;
             font-weight: 500;
             display: inline-flex;
             align-items: center;
@@ -279,13 +366,13 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding-top: 1rem;
         }
-        
+
         .project-content a:hover {
             color: #f87171;
         }
-        
-        .project-card:hover { 
-            transform: translateY(-5px); 
+
+        .project-card:hover {
+            transform: translateY(-5px);
             border-color: rgba(239, 68, 68, 0.3);
             box-shadow: 0 20px 25px -5px rgba(239, 68, 68, 0.2);
         }
@@ -305,8 +392,13 @@
         }
 
         @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Responsive adjustments */
@@ -314,7 +406,7 @@
             #repo-list {
                 grid-template-columns: 1fr;
             }
-            
+
             .project-image {
                 height: 160px;
             }
@@ -326,27 +418,28 @@
                 gap: 1rem;
                 padding: 1.5rem;
             }
-            
+
             .skill-card {
                 padding: 1.25rem 0.75rem;
             }
-            
+
             .skill-card i {
                 font-size: 2rem;
             }
-            
+
             .skill-card span {
                 font-size: 0.9rem;
             }
-            
+
             .skills-header h2 {
                 font-size: 2rem;
             }
-            
+
             #projects h2 {
                 font-size: 2rem;
             }
         }
+
         /* ===== END CUSTOM STYLES ===== */
 
         /* Animation classes */
@@ -355,7 +448,7 @@
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        
+
         .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
@@ -375,291 +468,494 @@
         }
     </style>
 </head>
+
 <body class="antialiased">
 
-<div class="star-field" aria-hidden="true"></div>
+    <div class="star-field" aria-hidden="true"></div>
 
-<!-- Navigation -->
-<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[850px]">
-    <div class="rounded-2xl bg-zinc-900/90 backdrop-blur-xl border border-zinc-800 px-4 py-3 md:px-6">
-        <div class="flex items-center justify-between">
-            <a class="text-lg font-extrabold text-white" href="#hero">Ahmed<span class="text-red-500">.</span></a>
-            <div class="hidden md:flex items-center gap-1">
-                <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#hero">Home</a>
-                <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#about">About</a>
-                <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#projects">Projects</a>
-                <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#skills">Skills</a>
-                <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#experience">Experience</a>
-                <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200" href="#contact">Contact</a>
-                <a href="Ahmed_Sherif_Dataanalyst_resume.pdf"  class="px-3 py-1.5 text-sm font-medium rounded-xl text-red-400 hover:bg-red-500/10 transition-colors">Resume</a>
+    <!-- Navigation -->
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[850px]">
+        <div class="rounded-2xl bg-zinc-900/90 backdrop-blur-xl border border-zinc-800 px-4 py-3 md:px-6">
+            <div class="flex items-center justify-between">
+                <a class="text-lg font-extrabold text-white" href="#hero">Ahmed<span class="text-red-500">.</span></a>
+                <div class="hidden md:flex items-center gap-1">
+                    <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200"
+                        href="#hero">Home</a>
+                    <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200"
+                        href="#about">About</a>
+                    <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200"
+                        href="#projects">Projects</a>
+                    <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200"
+                        href="#skills">Skills</a>
+                    <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200"
+                        href="#experience">Experience</a>
+                    <a class="px-3 py-1.5 text-sm font-medium rounded-xl text-zinc-400 hover:text-zinc-200"
+                        href="#contact">Contact</a>
+                    <a href="Ahmed_Sherif_Dataanalyst_resume.pdf"
+                        class="px-3 py-1.5 text-sm font-medium rounded-xl text-red-400 hover:bg-red-500/10 transition-colors">Resume</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-zinc-400 hover:text-red-400 transition-colors">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 5h16" />
+                        <path d="M4 12h16" />
+                        <path d="M4 19h16" />
+                    </svg>
+                </button>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden text-zinc-400 hover:text-red-400 transition-colors">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden mt-2 flex flex-col gap-1 md:hidden border-t border-white/5 pt-2">
-            <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#hero">Home</a>
-            <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#about">About</a>
-            <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#projects">Projects</a>
-            <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#skills">Skills</a>
-            <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#experience">Experience</a>
-            <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#contact">Contact</a>
-            <a href="#" onclick="alert('Resume PDF')" class="px-3 py-2 text-sm text-red-400 hover:bg-red-500/10 rounded">Resume</a>
-        </div>
-    </div>
-</nav>
-
-<main class="relative z-10 pt-16">
-
-<!-- HERO SECTION -->
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute w-[600px] h-[600px] rounded-full opacity-20 blur-[120px]" style="background:radial-gradient(circle, rgba(239,68,68,0.4) 0%, rgba(249,115,22,0.3) 40%, transparent 70%); left:50%; top:50%; transform:translate(-50%, -50%)"></div>
-        <div class="absolute w-[300px] h-[300px] rounded-full opacity-15 blur-[80px]" style="background:radial-gradient(circle, rgba(249,115,22,0.5) 0%, rgba(239,68,68,0.2) 50%, transparent 70%); left:60%; top:40%; transform:translate(-50%, -50%)"></div>
-    </div>
-    <div class="absolute inset-x-0 bottom-0 h-[40vh] hero-warm-glow pointer-events-none z-[1]"></div>
-
-    <div class="relative z-10 mx-auto max-w-4xl text-center px-4">
-        <p class="text-lg text-[#a1a1aa] fade-up">I'm</p>
-        <h1 class="mt-2 text-5xl sm:text-6xl md:text-7xl font-bold text-[#fafafa] leading-[1.1] fade-up" style="text-shadow:0 0 60px rgba(239, 68, 68, 0.2);">AHMED SHERIF</h1>
-        <div class="mt-4 flex justify-center fade-up"><span class="inline-flex items-center bg-red-500 text-white px-4 py-1.5 rounded-full text-sm font-medium">Data Analyst</span></div>
-        <p class="mt-6 text-xl sm:text-2xl text-[#a1a1aa] leading-relaxed fade-up">From raw data to real insights <br class="hidden sm:block"/> I make numbers <span class="font-serif italic gradient-text">tell stories</span></p>
-        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 fade-up">
-            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-red-500 text-white text-sm font-medium shadow-lg shadow-red-500/25 hover:bg-red-600 transition-all">Let's Connect <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            <button id="copy-email" class="inline-flex items-center gap-2 text-[#a1a1aa] text-sm hover:text-[#fafafa] transition-colors cursor-pointer">ahmedsherifgomaa13@gmail.com <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button>
-        </div>
-    </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 fade-up"><a href="#about"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#a1a1aa]/40 scroll-indicator hover:text-red-400 transition-colors"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></a></div>
-</section>
-
-<!-- ABOUT SECTION -->
-<section id="about">
-    <div class="max-w-4xl mx-auto px-4">
-        <div class="text-center mb-16 fade-up">
-            <h2 class="text-3xl sm:text-4xl font-bold text-[#fafafa]">About Me<span class="text-red-500">.</span></h2>
-            <p class="mt-3 text-lg text-[#a1a1aa]">Get to know me better</p>
-        </div>
-        <div class="grid md:grid-cols-2 gap-10 items-center">
-            <div class="aspect-square rounded-2xl bg-white/5 border border-white/10 relative overflow-hidden">
-                <div class="absolute -inset-1 bg-gradient-to-br from-red-500/20 to-orange-500/20 blur-xl opacity-50"></div>
-                <img 
-src="portfolio image.jpeg" 
-alt="Ahmed Sherif"
-class="relative w-full h-full object-cover rounded-2xl"
-/>
+            <div id="mobile-menu" class="hidden mt-2 flex flex-col gap-1 md:hidden border-t border-white/5 pt-2">
+                <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#hero">Home</a>
+                <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#about">About</a>
+                <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#projects">Projects</a>
+                <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#skills">Skills</a>
+                <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#experience">Experience</a>
+                <a class="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200" href="#contact">Contact</a>
+                <a href="#" onclick="alert('Resume PDF')"
+                    class="px-3 py-2 text-sm text-red-400 hover:bg-red-500/10 rounded">Resume</a>
             </div>
-            <div>
-                <p class="text-[#a1a1aa] leading-relaxed">I focus on understanding each client's needs and the real problems behind their data. I transform complex and messy data into clear insights and interactive dashboards that directly answer their questions. My goal is to deliver practical solutions that help clients make better decisions and improve their business performance.</p>
-                <div class="mt-8 grid grid-cols-2 gap-4">
-                    <div class="glass rounded-lg p-4 text-center"><p class="text-2xl font-bold text-[#fafafa]">1+</p><p class="text-sm text-[#a1a1aa]/60">Years Experience</p></div>
-                    <div class="glass rounded-lg p-4 text-center"><p class="text-2xl font-bold text-[#fafafa]">5+</p><p class="text-sm text-[#a1a1aa]/60">Projects Delivered</p></div>
-                    <a href="#projects" class="glass rounded-lg p-4 text-center flex flex-col items-center justify-center col-span-2 hover:border-red-500/30 transition-all">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 text-red-400"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>
-                        <p class="text-sm text-[#a1a1aa]/60 mt-2">View My Projects</p>
+        </div>
+    </nav>
+
+    <main class="relative z-10 pt-16">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 pointer-events-none">
+                <div class="absolute w-[600px] h-[600px] rounded-full opacity-20 blur-[120px]"
+                    style="background:radial-gradient(circle, rgba(239,68,68,0.4) 0%, rgba(249,115,22,0.3) 40%, transparent 70%); left:50%; top:50%; transform:translate(-50%, -50%)">
+                </div>
+                <div class="absolute w-[300px] h-[300px] rounded-full opacity-15 blur-[80px]"
+                    style="background:radial-gradient(circle, rgba(249,115,22,0.5) 0%, rgba(239,68,68,0.2) 50%, transparent 70%); left:60%; top:40%; transform:translate(-50%, -50%)">
+                </div>
+            </div>
+            <div class="absolute inset-x-0 bottom-0 h-[40vh] hero-warm-glow pointer-events-none z-[1]"></div>
+
+            <div class="relative z-10 mx-auto max-w-4xl text-center px-4">
+                <p class="text-lg text-[#a1a1aa] fade-up">I'm</p>
+                <h1 class="mt-2 text-5xl sm:text-6xl md:text-7xl font-bold text-[#fafafa] leading-[1.1] fade-up"
+                    style="text-shadow:0 0 60px rgba(239, 68, 68, 0.2);">AHMED SHERIF</h1>
+                <div class="mt-4 flex justify-center fade-up"><span
+                        class="inline-flex items-center bg-red-500 text-white px-4 py-1.5 rounded-full text-sm font-medium">Data
+                        Analyst</span></div>
+                <p class="mt-6 text-xl sm:text-2xl text-[#a1a1aa] leading-relaxed fade-up">From raw data to real
+                    insights <br class="hidden sm:block" /> I make numbers <span
+                        class="font-serif italic gradient-text">tell stories</span></p>
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 fade-up">
+                    <a href="#contact"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-red-500 text-white text-sm font-medium shadow-lg shadow-red-500/25 hover:bg-red-600 transition-all">Let's
+                        Connect <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg></a>
+                    <button id="copy-email"
+                        class="inline-flex items-center gap-2 text-[#a1a1aa] text-sm hover:text-[#fafafa] transition-colors cursor-pointer">ahmedsherifgomaa13@gmail.com
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="8" y="8" width="14" height="14" rx="2" />
+                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                        </svg></button>
+                </div>
+            </div>
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 fade-up"><a href="#about"><svg width="20"
+                        height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        class="text-[#a1a1aa]/40 scroll-indicator hover:text-red-400 transition-colors">
+                        <path d="M12 5v14" />
+                        <path d="m19 12-7 7-7-7" />
+                    </svg></a></div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="text-center mb-16 fade-up">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-[#fafafa]">About Me<span
+                            class="text-red-500">.</span></h2>
+                    <p class="mt-3 text-lg text-[#a1a1aa]">Get to know me better</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div class="aspect-square rounded-2xl bg-white/5 border border-white/10 relative overflow-hidden">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-br from-red-500/20 to-orange-500/20 blur-xl opacity-50">
+                        </div>
+                        <img src="portfolio image.jpeg" alt="Ahmed Sherif"
+                            class="relative w-full h-full object-cover rounded-2xl" />
+                    </div>
+                    <div>
+                        <p class="text-[#a1a1aa] leading-relaxed">I focus on understanding each client’s needs and the
+                            real problems behind their data. I transform complex and messy data into clear insights and
+                            interactive dashboards that directly answer their questions. My goal is to deliver practical
+                            solutions that help clients make better decisions and improve their business performance.
+                        </p>
+                        <div class="mt-8 grid grid-cols-2 gap-4">
+                            <div class="glass rounded-lg p-4 text-center">
+                                <p class="text-2xl font-bold text-[#fafafa]">1+</p>
+                                <p class="text-sm text-[#a1a1aa]/60">Years Experience</p>
+                            </div>
+                            <div class="glass rounded-lg p-4 text-center">
+                                <p class="text-2xl font-bold text-[#fafafa]">5+</p>
+                                <p class="text-sm text-[#a1a1aa]/60">Projects Delivered</p>
+                            </div>
+                            <a href="#projects"
+                                class="glass rounded-lg p-4 text-center flex flex-col items-center justify-center col-span-2 hover:border-red-500/30 transition-all">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="w-6 h-6 text-red-400">
+                                    <path
+                                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" />
+                                </svg>
+                                <p class="text-sm text-[#a1a1aa]/60 mt-2">View My Projects</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GITHUB PROJECTS SECTION - WITH IMAGES AND FILTERED -->
+        <section id="projects">
+            <h2>GitHub Projects<span class="text-red-500">.</span></h2>
+            <div id="repo-list">
+                <div class="loading">
+                    <i class="fas fa-spinner"></i> Loading projects from GitHub...
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills">
+            <div class="skills-wrapper">
+                <div class="skills-header fade-up">
+                    <h2>Skills & Expertise<span>.</span></h2>
+                    <p>Tools and technologies I work with</p>
+                </div>
+
+                <div class="skills-container fade-up">
+                    <!-- Python -->
+                    <div class="skill-card">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+
+                    <!-- SQL -->
+                    <div class="skill-card">
+                        <i class="fas fa-database"></i>
+                        <span>SQL</span>
+                    </div>
+
+                    <!-- Excel -->
+                    <div class="skill-card">
+                        <i class="fas fa-file-excel"></i>
+                        <span>Excel</span>
+                    </div>
+
+                    <!-- Power BI -->
+                    <div class="skill-card">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Power BI</span>
+                    </div>
+
+                    <!-- Data Visualization -->
+                    <div class="skill-card">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Data Visualization</span>
+                    </div>
+
+                    <!-- Data Modeling -->
+                    <div class="skill-card">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Data Modeling</span>
+                    </div>
+
+                    <!-- Analytics -->
+                    <div class="skill-card">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </div>
+
+                    <!-- Automation -->
+                    <div class="skill-card">
+                        <i class="fas fa-cogs"></i>
+                        <span>Automation</span>
+                    </div>
+
+                    <!-- Machine Learning -->
+                    <div class="skill-card">
+                        <i class="fas fa-brain"></i>
+                        <span>Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="text-center mb-16 fade-up">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-[#fafafa]">Experience<span
+                            class="text-red-500">.</span></h2>
+                </div>
+                <div class="relative pl-8 border-l-2 border-red-500/30 space-y-8 fade-up">
+                    <div class="relative">
+                        <div
+                            class="absolute -left-[41px] top-1 w-4 h-4 rounded-full border-2 border-red-500 bg-[#0a0a0a]">
+                        </div>
+                        <div class="glass p-6 rounded-xl">
+                            <div class="flex flex-wrap justify-between gap-2">
+                                <h3 class="font-semibold text-[#fafafa]">Data Analyst Trainee</h3>
+                                <span class="text-sm text-zinc-500">Sep 2025 - Present</span>
+                            </div>
+                            <p class="text-red-400 text-sm mt-1">DEPI · Egypt</p>
+                            <ul class="mt-4 space-y-2 text-sm text-[#a1a1aa]">
+                                <li class="flex gap-2"><span class="text-red-500">•</span>Working on real-world data
+                                    analysis projects using Python and SQL</li>
+                                <li class="flex gap-2"><span class="text-red-500">•</span>Creating interactive
+                                    dashboards in Power BI and Excel</li>
+                                <li class="flex gap-2"><span class="text-red-500">•</span>Implementing data cleaning and
+                                    preprocessing pipelines</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESUME CTA -->
+        <section class="py-[60px] px-4 text-center">
+            <div class="max-w-3xl mx-auto glass rounded-2xl p-10 md:p-14 relative overflow-hidden">
+                <h2 class="text-3xl font-bold text-[#fafafa]">Want to know more<span class="text-red-400">?</span></h2>
+                <p class="mt-4 text-[#a1a1aa]">Download my resume for a detailed look at my experience and skills.</p>
+                <a href="Ahmed_Sherif_Dataanalyst_resume.pdf"
+                    class="inline-flex gap-2 mt-6 px-8 py-3 border border-red-500/25 bg-red-500/10 rounded-lg text-red-400 hover:bg-red-500/20 hover:border-red-500/40 transition-all">📄
+                    View Resume</a>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <div class="max-w-2xl mx-auto text-center px-4">
+                <h2 class="text-3xl sm:text-4xl font-bold text-[#fafafa]">Get in Touch<span
+                        class="text-red-500">.</span></h2>
+                <p class="mt-3 text-lg text-[#a1a1aa]">Have a project in mind or want to collaborate?</p>
+                <div class="flex flex-col items-center gap-4 mt-8">
+                    <div class="flex items-center gap-2 text-[#a1a1aa] hover:text-red-400 transition-colors">
+                        <i class="fas fa-envelope text-red-400"></i>
+                        <a href="mailto:ahmedsherifgomaa13@gmail.com">ahmedsherifgomaa13@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-2 text-[#a1a1aa]">
+                        <i class="fas fa-map-marker-alt text-red-400"></i>
+                        <span>Egypt</span>
+                    </div>
+                    <div class="flex gap-4 mt-4">
+                        <a href="https://github.com/Ahmedsherif1306" target="_blank"
+                            class="px-4 py-2 glass rounded-lg hover:text-red-400 hover:border-red-400/30 transition-all"><i
+                                class="fab fa-github"></i> GitHub</a>
+                        <a href="https://www.linkedin.com/in/ahmed-sherif13" target="_blank"
+                            class="px-4 py-2 glass rounded-lg hover:text-red-400 hover:border-red-400/30 transition-all"><i
+                                class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://wa.me/201003097911" target="_blank"
+                            class="px-4 py-2 glass rounded-lg hover:text-red-400 hover:border-red-400/30 transition-all"><i
+                                class="fab fa-whatsapp"></i> Chat</a>
+                    </div>
+                    <a href="mailto:ahmedsherifgomaa13@gmail.com"
+                        class="inline-flex items-center bg-red-500 text-white px-7 py-3 rounded-lg shadow-lg mt-6 hover:bg-red-600 transition-all">
+                        <i class="fas fa-paper-plane mr-2"></i> Send an email
                     </a>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
+    </main>
 
-<!-- GITHUB PROJECTS SECTION - SHOWS ONLY PROJECTS WITH screenshot.png -->
-<section id="projects">
-    <h2>Dashboard Projects<span class="text-red-500">.</span></h2>
-    <div id="repo-list">
-        <div class="loading">
-            <i class="fas fa-spinner"></i> Loading projects from GitHub...
-        </div>
-    </div>
-</section>
-
-<!-- SKILLS SECTION -->
-<section id="skills">
-    <div class="skills-wrapper">
-        <div class="skills-header fade-up">
-            <h2>Skills & Expertise<span>.</span></h2>
-            <p>Tools and technologies I work with</p>
-        </div>
-        
-        <div class="skills-container fade-up">
-            <!-- Python -->
-            <div class="skill-card">
-                <i class="fab fa-python"></i>
-                <span>Python</span>
-            </div>
-            
-            <!-- SQL -->
-            <div class="skill-card">
-                <i class="fas fa-database"></i>
-                <span>SQL</span>
-            </div>
-            
-            <!-- Excel -->
-            <div class="skill-card">
-                <i class="fas fa-file-excel"></i>
-                <span>Excel</span>
-            </div>
-            
-            <!-- Power BI -->
-            <div class="skill-card">
-                <i class="fas fa-chart-pie"></i>
-                <span>Power BI</span>
-            </div>
-            
-            <!-- Data Visualization -->
-            <div class="skill-card">
-                <i class="fas fa-chart-bar"></i>
-                <span>Data Visualization</span>
-            </div>
-            
-            <!-- Data Modeling -->
-            <div class="skill-card">
-                <i class="fas fa-project-diagram"></i>
-                <span>Data Modeling</span>
-            </div>
-            
-            <!-- Analytics -->
-            <div class="skill-card">
-                <i class="fas fa-chart-line"></i>
-                <span>Analytics</span>
-            </div>
-            
-            <!-- Automation -->
-            <div class="skill-card">
-                <i class="fas fa-cogs"></i>
-                <span>Automation</span>
-            </div>
-            
-            <!-- Machine Learning -->
-            <div class="skill-card">
-                <i class="fas fa-brain"></i>
-                <span>Machine Learning</span>
+    <footer class="border-t border-white/5 py-8 px-4">
+        <div
+            class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#a1a1aa]/60">
+            <p>© 2026 Ahmed Sherif. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="https://github.com/Ahmedsherif1306" target="_blank"
+                    class="hover:text-red-400 transition-colors"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/ahmed-sherif13" target="_blank"
+                    class="hover:text-red-400 transition-colors"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://wa.me/201003097911" target="_blank" class="hover:text-red-400 transition-colors"><i
+                        class="fab fa-whatsapp"></i> WhatsApp</a>
             </div>
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- EXPERIENCE SECTION -->
-<section id="experience">
-    <div class="max-w-4xl mx-auto px-4">
-        <div class="text-center mb-16 fade-up">
-            <h2 class="text-3xl sm:text-4xl font-bold text-[#fafafa]">Experience<span class="text-red-500">.</span></h2>
-        </div>
-        <div class="relative pl-8 border-l-2 border-red-500/30 space-y-8 fade-up">
-            <div class="relative">
-                <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full border-2 border-red-500 bg-[#0a0a0a]"></div>
-                <div class="glass p-6 rounded-xl">
-                    <div class="flex flex-wrap justify-between gap-2">
-                        <h3 class="font-semibold text-[#fafafa]">Data Analyst Trainee</h3>
-                        <span class="text-sm text-zinc-500">Sep 2025 - Present</span>
-                    </div>
-                    <p class="text-red-400 text-sm mt-1">DEPI · Egypt</p>
-                    <ul class="mt-4 space-y-2 text-sm text-[#a1a1aa]">
-                        <li class="flex gap-2"><span class="text-red-500">•</span>Working on real-world data analysis projects using Python and SQL</li>
-                        <li class="flex gap-2"><span class="text-red-500">•</span>Creating interactive dashboards in Power BI and Excel</li>
-                        <li class="flex gap-2"><span class="text-red-500">•</span>Implementing data cleaning and preprocessing pipelines</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <script>
+        (function () {
+            // Mobile menu toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if (btn && menu) {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    menu.classList.toggle('hidden');
+                });
+                document.addEventListener('click', (e) => {
+                    if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                        menu.classList.add('hidden');
+                    }
+                });
+            }
 
-<!-- RESUME CTA -->
-<section class="py-[60px] px-4 text-center">
-    <div class="max-w-3xl mx-auto glass rounded-2xl p-10 md:p-14 relative overflow-hidden">
-        <h2 class="text-3xl font-bold text-[#fafafa]">Want to know more<span class="text-red-400">?</span></h2>
-        <p class="mt-4 text-[#a1a1aa]">Download my resume for a detailed look at my experience and skills.</p>
-        <a href="Ahmed_Sherif_Dataanalyst_resume.pdf" class="inline-flex gap-2 mt-6 px-8 py-3 border border-red-500/25 bg-red-500/10 rounded-lg text-red-400 hover:bg-red-500/20 hover:border-red-500/40 transition-all">📄 View Resume</a>
-    </div>
-</section>
+            // Copy email functionality
+            const copyBtn = document.getElementById('copy-email');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', () => {
+                    navigator.clipboard?.writeText('ahmedsherifgomaa13@gmail.com').then(() => {
+                        const original = copyBtn.innerHTML;
+                        copyBtn.innerHTML = '<span class="text-green-400"><i class="fas fa-check mr-1"></i>Copied!</span>';
+                        setTimeout(() => { copyBtn.innerHTML = original; }, 2000);
+                    }).catch(() => {
+                        alert('Please copy manually: ahmedsherifgomaa13@gmail.com');
+                    });
+                });
+            }
 
-<!-- CONTACT SECTION -->
-<section id="contact">
-    <div class="max-w-2xl mx-auto text-center px-4">
-        <h2 class="text-3xl sm:text-4xl font-bold text-[#fafafa]">Get in Touch<span class="text-red-500">.</span></h2>
-        <p class="mt-3 text-lg text-[#a1a1aa]">Have a project in mind or want to collaborate?</p>
-        <div class="flex flex-col items-center gap-4 mt-8">
-            <div class="flex items-center gap-2 text-[#a1a1aa] hover:text-red-400 transition-colors">
-                <i class="fas fa-envelope text-red-400"></i>
-                <a href="mailto:ahmedsherifgomaa13@gmail.com">ahmedsherifgomaa13@gmail.com</a>
-            </div>
-            <div class="flex items-center gap-2 text-[#a1a1aa]">
-                <i class="fas fa-map-marker-alt text-red-400"></i>
-                <span>Egypt</span>
-            </div>
-            <div class="flex gap-4 mt-4">
-                <a href="https://github.com/Ahmedsherif1306" target="_blank" class="px-4 py-2 glass rounded-lg hover:text-red-400 hover:border-red-400/30 transition-all"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/ahmed-sherif13" target="_blank" class="px-4 py-2 glass rounded-lg hover:text-red-400 hover:border-red-400/30 transition-all"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://wa.me/201003097911" target="_blank" class="px-4 py-2 glass rounded-lg hover:text-red-400 hover:border-red-400/30 transition-all"><i class="fab fa-whatsapp"></i> Chat</a>
-            </div>
-            <a href="mailto:ahmedsherifgomaa13@gmail.com" class="inline-flex items-center bg-red-500 text-white px-7 py-3 rounded-lg shadow-lg mt-6 hover:bg-red-600 transition-all">
-                <i class="fas fa-paper-plane mr-2"></i> Send an email
-            </a>
-        </div>
-    </div>
-</section>
-</main>
+            // Scroll reveal animation
+            const fadeElements = document.querySelectorAll('.fade-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-<footer class="border-t border-white/5 py-8 px-4">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#a1a1aa]/60">
-        <p>© 2026 Ahmed Sherif. All rights reserved.</p>
-        <div class="flex gap-6">
-            <a href="https://github.com/Ahmedsherif1306" target="_blank" class="hover:text-red-400 transition-colors"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/ahmed-sherif13" target="_blank" class="hover:text-red-400 transition-colors"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="https://wa.me/201003097911" target="_blank" class="hover:text-red-400 transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        </div>
-    </div>
-</footer>
+            fadeElements.forEach(el => observer.observe(el));
 
-<script>
-    (function(){
-        // Mobile menu toggle
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        if (btn && menu) {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                menu.classList.toggle('hidden');
-            });
-            document.addEventListener('click', (e) => {
-                if (!btn.contains(e.target) && !menu.contains(e.target)) {
-                    menu.classList.add('hidden');
-                }
-            });
-        }
-
-        // Copy email functionality
-        const copyBtn = document.getElementById('copy-email');
-        if (copyBtn) {
-            copyBtn.addEventListener('click', () => {
-                navigator.clipboard?.writeText('ahmedsherifgomaa13@gmail.com').then(() => {
-                    const original = copyBtn.innerHTML;
-                    copyBtn.innerHTML = '<span class="text-green-400"><i class="fas fa-check mr-1"></i>Copied!</span>';
-                    setTimeout(() => { copyBtn.innerHTML = original; }, 2000);
-                }).catch(() => {
-                    alert('Please copy manually: ahmedsherifgomaa13@gmail.com');
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // Close mobile menu if open
+                        if (menu && !menu.classList.contains('hidden')) {
+                            menu.classList.add('hidden');
+                        }
+                    }
                 });
             });
-        }
 
-        // Scroll reveal animation
-        const fadeElements = document.querySelectorAll('.fade-up');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+            // ===== GITHUB PROJECTS FETCH WITH IMAGES AND FILTER =====
+            const username = "Ahmedsherif1306";
+            const repoList = document.getElementById("repo-list");
+
+            // Function to get image for repository
+            function getRepoImage(repo) {
+                // Try to get the social preview image (og-image) from the repo
+                if (repo.has_pages) {
+                    return `https://raw.githubusercontent.com/${username}/${repo.name}/main/og-image.png`;
                 }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+                return null;
+            }
 
-        fadeElements.forEach(el => observer.observe(el));
+            // جلب المشاريع من GitHub API
+            fetch(`https://api.github.com/users/${username}/repos?sort=updated&direction=desc&per_page=100`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('GitHub API error');
+                    }
+                    return response.json();
+                })
+                .then(repos => {
+                    // Clear loading message
+                    repoList.innerHTML = '';
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Close
+                    // Filter out the github.io repository
+                    const filteredRepos = repos.filter(repo =>
+                        !repo.name.includes(`${username}.github.io`)
+                    );
+
+                    // Show only first 6 repos
+                    const recentRepos = filteredRepos.slice(0, 6);
+
+                    if (recentRepos.length === 0) {
+                        repoList.innerHTML = `
+                        <div class="loading" style="grid-column: 1/-1;">
+                            <i class="fas fa-info-circle"></i> 
+                            No projects found.
+                        </div>
+                    `;
+                        return;
+                    }
+
+                    recentRepos.forEach(repo => {
+                        const repoCard = document.createElement("div");
+                        repoCard.className = "project-card fade-up";
+
+                        // Format date
+                        const updatedDate = new Date(repo.updated_at).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                        });
+
+                        // Get primary language color
+                        const languageColors = {
+                            'Python': '#3776ab',
+                            'JavaScript': '#f7df1e',
+                            'TypeScript': '#3178c6',
+                            'HTML': '#e34c26',
+                            'CSS': '#563d7c',
+                            'Jupyter Notebook': '#da5b0b',
+                            'Java': '#b07219'
+                        };
+
+                        const langColor = languageColors[repo.language] || '#ef4444';
+
+                        const screenshotUrl = `https://raw.githubusercontent.com/${username}/${repo.name}/main/screenshot.png`;
+
+                        // Generate random gradient for fallback image based on repo name
+                        const gradientColors = [
+                            'linear-gradient(135deg, #ef4444, #f97316)',
+                            'linear-gradient(135deg, #8b5cf6, #ec4899)',
+                            'linear-gradient(135deg, #3b82f6, #2dd4bf)',
+                            'linear-gradient(135deg, #10b981, #f59e0b)',
+                            'linear-gradient(135deg, #6366f1, #a855f7)'
+                        ];
+
+                        const gradientIndex = repo.name.length % gradientColors.length;
+
+                        repoCard.innerHTML = `
+                <div class="project-image">
+                    <img src="${screenshotUrl}" 
+                         alt="${repo.name}" 
+                         onerror="this.parentElement.innerHTML='<div class=\'fallback\' style=\'background: ${gradientColors[gradientIndex]};\'><i class=\'fab fa-github\'></i><div style=\'font-size: 0.8rem; margin-top: 0.5rem;\'>${repo.name.substring(0, 15)}</div></div>'">
+                </div>
+                <div class="project-content">
+                    <h3>${repo.name}</h3>
+                    <p>${repo.description || "No description available"}</p>
+                    <div class="project-stats">
+                        <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+                        <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+                        <span><i class="fas fa-circle" style="color: ${langColor};"></i> ${repo.language || 'N/A'}</span>
+                        <span><i class="far fa-calendar-alt"></i> ${updatedDate}</span>
+                    </div>
+                    <a href="${repo.html_url}" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            `;
+                        repoList.appendChild(repoCard);
+
+                        // Trigger fade-up animation
+                        setTimeout(() => {
+                            repoCard.classList.add('visible');
+                        }, 100 * recentRepos.indexOf(repo));
+                    });
+                })
+                .catch(error => {
+                    repoList.innerHTML = `
+                    <div class="loading" style="grid-column: 1/-1;">
+                        <i class="fas fa-exclamation-circle" style="color: #ef4444;"></i> 
+                        Error loading repositories. Please try again later.
+                    </div>
+                `;
+                    console.error('Error fetching repos:', error);
+                });
+        })();
+    </script>
+</body>
+
+</html>
