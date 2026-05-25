@@ -449,7 +449,7 @@ class="relative w-full h-full object-cover rounded-2xl"
 />
             </div>
             <div>
-                <p class="text-[#a1a1aa] leading-relaxed">I focus on understanding each client’s needs and the real problems behind their data. I transform complex and messy data into clear insights and interactive dashboards that directly answer their questions. My goal is to deliver practical solutions that help clients make better decisions and improve their business performance.</p>
+                <p class="text-[#a1a1aa] leading-relaxed">I focus on understanding each client's needs and the real problems behind their data. I transform complex and messy data into clear insights and interactive dashboards that directly answer their questions. My goal is to deliver practical solutions that help clients make better decisions and improve their business performance.</p>
                 <div class="mt-8 grid grid-cols-2 gap-4">
                     <div class="glass rounded-lg p-4 text-center"><p class="text-2xl font-bold text-[#fafafa]">1+</p><p class="text-sm text-[#a1a1aa]/60">Years Experience</p></div>
                     <div class="glass rounded-lg p-4 text-center"><p class="text-2xl font-bold text-[#fafafa]">5+</p><p class="text-sm text-[#a1a1aa]/60">Projects Delivered</p></div>
@@ -463,9 +463,9 @@ class="relative w-full h-full object-cover rounded-2xl"
     </div>
 </section>
 
-<!-- GITHUB PROJECTS SECTION - WITH IMAGES AND FILTERED -->
+<!-- GITHUB PROJECTS SECTION - SHOWS ONLY PROJECTS WITH screenshot.png -->
 <section id="projects">
-    <h2>GitHub Projects<span class="text-red-500">.</span></h2>
+    <h2>Dashboard Projects<span class="text-red-500">.</span></h2>
     <div id="repo-list">
         <div class="loading">
             <i class="fas fa-spinner"></i> Loading projects from GitHub...
@@ -662,132 +662,4 @@ class="relative w-full h-full object-cover rounded-2xl"
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Close mobile menu if open
-                    if (menu && !menu.classList.contains('hidden')) {
-                        menu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-
-        // ===== GITHUB PROJECTS FETCH WITH IMAGES AND FILTER =====
-        const username = "Ahmedsherif1306";
-        const repoList = document.getElementById("repo-list");
-
-        // Function to get image for repository
-        function getRepoImage(repo) {
-            // Try to get the social preview image (og-image) from the repo
-            if (repo.has_pages) {
-                return `https://raw.githubusercontent.com/${username}/${repo.name}/main/og-image.png`;
-            }
-            return null;
-        }
-
-        // جلب المشاريع من GitHub API
-        fetch(`https://api.github.com/users/${username}/repos?sort=updated&direction=desc&per_page=100`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('GitHub API error');
-                }
-                return response.json();
-            })
-            .then(repos => {
-                // Clear loading message
-                repoList.innerHTML = '';
-                
-                // Filter out the github.io repository
-                const filteredRepos = repos.filter(repo => 
-                    !repo.name.includes(`${username}.github.io`)
-                );
-                
-                // Show only first 6 repos
-                const recentRepos = filteredRepos.slice(0, 6);
-                
-                if (recentRepos.length === 0) {
-                    repoList.innerHTML = `
-                        <div class="loading" style="grid-column: 1/-1;">
-                            <i class="fas fa-info-circle"></i> 
-                            No projects found.
-                        </div>
-                    `;
-                    return;
-                }
-                
-                recentRepos.forEach(repo => {
-                    const repoCard = document.createElement("div");
-                    repoCard.className = "project-card fade-up";
-                    
-                    // Format date
-                    const updatedDate = new Date(repo.updated_at).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric'
-                    });
-                    
-                    // Get primary language color
-                    const languageColors = {
-                        'Python': '#3776ab',
-                        'JavaScript': '#f7df1e',
-                        'TypeScript': '#3178c6',
-                        'HTML': '#e34c26',
-                        'CSS': '#563d7c',
-                        'Jupyter Notebook': '#da5b0b',
-                        'Java': '#b07219'
-                    };
-                    
-                    const langColor = languageColors[repo.language] || '#ef4444';
-
-                    const screenshotUrl = `https://raw.githubusercontent.com/${username}/${repo.name}/main/screenshot.png`;
-                    
-                    // Generate random gradient for fallback image based on repo name
-                    const gradientColors = [
-                        'linear-gradient(135deg, #ef4444, #f97316)',
-                        'linear-gradient(135deg, #8b5cf6, #ec4899)',
-                        'linear-gradient(135deg, #3b82f6, #2dd4bf)',
-                        'linear-gradient(135deg, #10b981, #f59e0b)',
-                        'linear-gradient(135deg, #6366f1, #a855f7)'
-                    ];
-                    
-                    const gradientIndex = repo.name.length % gradientColors.length;
-                    
-                    repoCard.innerHTML = `
-                <div class="project-image">
-                    <img src="${screenshotUrl}" 
-                         alt="${repo.name}" 
-                         onerror="this.parentElement.innerHTML='<div class=\'fallback\' style=\'background: ${gradientColors[gradientIndex]};\'><i class=\'fab fa-github\'></i><div style=\'font-size: 0.8rem; margin-top: 0.5rem;\'>${repo.name.substring(0, 15)}</div></div>'">
-                </div>
-                <div class="project-content">
-                    <h3>${repo.name}</h3>
-                    <p>${repo.description || "No description available"}</p>
-                    <div class="project-stats">
-                        <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
-                        <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
-                        <span><i class="fas fa-circle" style="color: ${langColor};"></i> ${repo.language || 'N/A'}</span>
-                        <span><i class="far fa-calendar-alt"></i> ${updatedDate}</span>
-                    </div>
-                    <a href="${repo.html_url}" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
-                </div>
-            `;
-                    repoList.appendChild(repoCard);
-                    
-                    // Trigger fade-up animation
-                    setTimeout(() => {
-                        repoCard.classList.add('visible');
-                    }, 100 * recentRepos.indexOf(repo));
-                });
-            })
-            .catch(error => {
-                repoList.innerHTML = `
-                    <div class="loading" style="grid-column: 1/-1;">
-                        <i class="fas fa-exclamation-circle" style="color: #ef4444;"></i> 
-                        Error loading repositories. Please try again later.
-                    </div>
-                `;
-                console.error('Error fetching repos:', error);
-            });
-    })();
-</script>
-</body>
-</html>
+                    // Close
