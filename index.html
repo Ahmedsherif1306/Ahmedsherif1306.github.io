@@ -863,8 +863,14 @@
                     repoList.innerHTML = '';
 
                     // Filter out the github.io repository
+                    const excludedRepos = [
+                        `${username}.github.io`,
+                        "Population-Health",
+                        "DecodeLabs-Internship"
+                    ];
+
                     const filteredRepos = repos.filter(repo =>
-                        !repo.name.includes(`${username}.github.io`) || !repo.name.includes(`DecodeLabs-Internship.github.io`) || !repo.name.includes(`Population-Health.github.io`)
+                        !excludedRepos.some(name => repo.name.includes(name))
                     );
 
 
