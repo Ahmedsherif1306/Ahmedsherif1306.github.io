@@ -864,7 +864,7 @@
 
                     // Filter out the github.io repository
                     const filteredRepos = repos.filter(repo =>
-                        !repo.name.includes(`${username}.github.io`) && !repo.name.includes(`DecodeLabs-Internship.github.io`) && !repo.name.includes(`Population-Health.github.io`)
+                        !repo.name.includes(`${username}.github.io`) || !repo.name.includes(`DecodeLabs-Internship.github.io`) || !repo.name.includes(`Population-Health.github.io`)
                     );
 
 
